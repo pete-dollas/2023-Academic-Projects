@@ -18,7 +18,6 @@
                 max-width: 1000px;
                 margin: auto;
             }
-        
             /* navigation menu */
             nav {
                 background: rgb(147, 164, 175);
@@ -45,13 +44,14 @@
                 text-decoration: none;
                 color: #fff;
             }
-        
             /* main container area beneath menu */
-            main {
-                background: rgb(245, 238, 219);
-                display: flex;
+            .flex-container-Main {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            background: rgb(245, 238, 219);
             }
-            .sidebar {
+             sidebar {
                 margin-right: 25px;
                 padding: 10px;
             }
@@ -60,9 +60,15 @@
                 height:200px;
                 border-radius: 180px;
             }
-            .content {
+            .content-main {
                 flex: 1;
-                padding: 15px;
+                padding: 10px;
+            }
+            .flex-container-Secondary {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            background: rgb(245, 238, 219);
             }
             h2, h3 {
                 margin: 0px;
@@ -70,40 +76,36 @@
         </style>
     </head>
     <body>
-        <div id="all-contents"> 
+        <div id="all-contents">
             <nav>
                 <h1>Pete Dollas, MBA</h1>
                 <ul>
-                    <li>
-                        <a href="index.html"> Home </a>
-                    </li>
-                    <li>
-                        <a href="https://www.linkedin.com/in/peter-d-337383260/"> LinkedIn </a>
-                    </li>
-                    <li>
-                        <a href="portfolio.html"> Portfolio </a>
-                    </li>
+                    <li> <a href="index.html"> Home </a></li>
+                    <li> <a href="https://www.linkedin.com/in/peter-d-337383260/">LinkedIn</li>
+                    <li> <a href="portfolio.html"> Portfolio </a></li>
                 </ul>
             </nav>
-    
-            <main>
-                <div class="sidebar">
-                    <img src="https://imagizer.imageshack.com/img924/4342/R4w9GH.jpg">
-                </div>  
-                <br>
-                <div class="content">
+            
+            </div>
+            <div class="flex-container-Main">
+                    <div class="sidebar">
+                        <img src="https://imagizer.imageshack.com/img924/4342/R4w9GH.jpg">
+                    </div> 
+                <div class="content-main">
                     <h2>Background</h2>
                     <p> Pete's background is originally in Human Resources Business Consulting and Education/Training & Development.
                         The nature of his work has always been data driven, and he often found himself in roles that required
                         heavy reporting, database management, and data tracking. 
-                    </p>
+                    </p> 
                     <p>
                         When he learned of Operation Spark's Bootcamp to transition into web development,
                         it was an opportunity he could not miss. He entered the program in Summer 2023 knowing absolutely 
                         nothing about HTML, CSS, or JavaScript (or any formal coding language for that matter). 
-                    </p>        
-                </div>
-                <div class="interests">
+                    </p>
+                </div>     
+            </div>
+                <div class="flex-container-Secondary"</div>
+                <div class="content-secondary">
                     <h3>Personal Interests</h3>
                     <u1>
                     <li>Foreign Language Proficiency (Spanish, French)</li>
@@ -112,8 +114,7 @@
                     <li>Drag Queens</li>
                     </u1>    
                 </div>
-            </main>
+            </div>
         </div>
     </body>
-
 </html>
