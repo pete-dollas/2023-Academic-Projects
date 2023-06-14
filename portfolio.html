@@ -10,18 +10,12 @@
 
         <style type="text/css">
             body {
-                background: rgb(125, 198, 205);
-                color: rgb(45, 45, 45);
+                background: rgb(200,209,221);
+                color: rgb(0, 0, 0);
                 padding: 10px;
                 font-family: arial;
             }
-            header {
-                font-size: 1.5em;
-                font-weight: bold;
-            }
-            h1 {
-                margin: 10px;
-            }
+           
             #all-contents {
                 max-width: 800px;
                 margin: auto;
@@ -29,16 +23,18 @@
 
             /* navigation menu */
             nav {
-                background: rgb(239, 80, 41);
+                background: rgb(147, 164, 175);
                 margin: 0 auto;
+                margin-bottom: 20px;
                 display: flex;
                 padding: 10px;
             }
-            nav header {
+            nav h1 {
                 display: flex;
                 align-items: center;
-                color: rgb(255, 255, 255);
+                color: rgb(163, 139, 34);
                 flex: 1;
+                margin: 0;
             }
             nav ul {
                 list-style-image: none;
@@ -60,6 +56,9 @@
             .content {
                 flex: 1;
                 padding: 15px;
+            }
+            h2, h3 {
+                margin: 0px;
             }
              /* portfolio styles */
              #portfolio {
@@ -86,7 +85,7 @@
         <body>
             <div id="all contents">
                 <nav>
-                    <header>Pete Dollas, MBA</header>
+                    <h1>Pete Dollas, MBA</h1>
                 <ul>
                     <li>
                         <a href="index.html"> Home </a>
@@ -101,7 +100,7 @@
                 </nav>
                 <main>
                     <div class="content">
-                        <h1>Portfolio</h1>
+                        <h2>Portfolio</h2>
                         <ul id="portfolio">
                         </ul>
                     </div>
