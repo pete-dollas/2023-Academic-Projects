@@ -33,12 +33,13 @@
  *      the exact case.
  */
 
-function greeter(hour) {
+function greeter(hour) {//input a number 0 - 24
     // YOUR CODE BELOW HERE //
-    
-    
-    
-    
+    if (hour < 0 || hour > 24) {return console.log("Please enter a valid time")}//edge case for invalid input
+    else if (hour >= 0 && hour <= 11) {return console.log("Good Morning!")}//log for inclusive 0 to 11
+    else if (hour > 11  && hour <= 16) {return console.log("Good Afternoon!")}//log for anything over 11, up to inclusive 16
+    else if (hour > 16 && hour <= 21) {return console.log("Good Evening!")}//log for anything over 16, up to inclusive 21
+    else if (hour > 21&& hour <= 24) {return console.log("Good Night!")}//log for anything over 21, up to inclusive 24
     // YOUR CODE ABOVE HERE //
 }
 
