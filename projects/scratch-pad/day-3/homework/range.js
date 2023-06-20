@@ -21,12 +21,18 @@
  *  b. you'll need a loop, which one is best?
  *  c. you'll wanna make use of the push() method of Array.
  */
-function range(start, end) {
+function range(start, end) {//input 2 numbers
     // YOUR CODE GOES BELOW HERE //
-    
-    
-    
-    
+    var newArr = [];//create an array to contain our range
+    //if start < end, use a for loop counting up
+if (start < end) {
+    for (let i = start; i <= end ; i++) {newArr.push(i)}
+}
+    //else if start > end, use a for loop counting down
+ else if (start > end){
+    for (let i = start; i >= end ; i--) {newArr.push(i)}
+ }   
+    return newArr;//return array containing our range
     // YOUR CODE GOES ABOVE HERE //
 }
 
