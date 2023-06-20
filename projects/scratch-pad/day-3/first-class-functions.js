@@ -11,11 +11,13 @@
  * return a Function that tests whether a given value is greater than the 
  * base.
  */
-function createGreaterThanFilter(base) {
+function createGreaterThanFilter(base) {//input of string or number
     // YOUR CODE BELOW HERE //
     
-    
-    
+    return function(value){
+        return (value > base)
+    }
+    //return function to test whether a given value is greater than base
     
     // YOUR CODE ABOVE HERE //
 }
@@ -25,7 +27,7 @@ function createGreaterThanFilter(base) {
  * return a Function that tests whether a given value is less than the 
  * base.
  */
-function createLessThanFilter(base) {
+function createLessThanFilter(base) {//input a number or string
     // YOUR CODE BELOW HERE //
     
     
