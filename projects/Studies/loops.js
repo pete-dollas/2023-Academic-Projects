@@ -1,4 +1,5 @@
 /**
  * LOOPS
  * 
+ * 0. DEFINITION & BACKGROUND
  */

@@ -1,5 +1,8 @@
 /**
  * OPERATORS
+ * 
+ * 
+ * 0. DEFINITION & BACKGROUND
  */
 
 //1. ASSIGNMENT OPERATORS

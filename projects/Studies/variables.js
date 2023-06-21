@@ -1,7 +1,8 @@
 /**
  * VARIABLES
  * 
- * 0: Variables are named containers
+ * 0. DEFINITION & BACKGROUND
+ * Variables are named containers
  * 
  * 1: Declaration and assignment:
  * 

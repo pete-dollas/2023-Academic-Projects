@@ -1,4 +1,5 @@
 /**
  * DATA TYPES
  * 
+ * 0. DEFINITION & BACKGROUND
  */
