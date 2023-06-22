@@ -34,28 +34,58 @@
  */
 
 // YOUR CODE GOES BELOW HERE //
-function makeContact(id, nameFirst, nameLast) {
-
+function makeContact(id, nameFirst, nameLast) {//input number, string, string
+    let Contact = {//create object with key/values of each parameter and argument
+      "id": id,
+      "nameFirst": nameFirst,
+      "nameLast": nameLast
+    }
+    return Contact;//return the output
 } 
 
 
-function makeContactList() {
-    /*
-     * You need something here to hold contacts. See length api for a hint:
-     */
-    var contacts;
+function makeContactList() {//accepts an input of number(id), string(nameFirst), string(nameLast)
+    var contactList = []; //this is an array to hold the contact objects;
     
     return {
         // we implemented the length api for you //
         length: function() {
-            return contacts.length;
-        }
+            return contactList.length;
+        },
+        addContact: function(contact) { //input a contact via makeContact and its 3 associated parameters
+          contactList.push(contact);//push this object to the contact list array
+        },
+        findContact: function(fullName) {//input a contact via makeContact and its 3 associated parameters
+            for (let i = 0; i <= contactList.length - 1; i++) {//loop through contact list array by indexed objects
+                //if fullName string matches an object first and last name, return the indexed object
+                if (fullName === contactList[i]["nameFirst"] + " " + contactList[i]["nameLast"]) {return contactList[i]}
+                else {return undefined}//else return undefined
+            }//closing braces to for loop within findContact
+        },//closing braces to findContact
+        removeContact: function(contact) {//input a contact via makeContact and its 3 associated parameters
+            for (let i = 0; i <= contactList.length - 1; i++) {//loop through contact list array by indexed objects
+            //CONTACT PARAMETER IS TAKING THIS AS AN ARGUMENT: contacts.findContact('firstname lastname')
+            //it is returning the full object from within the contact list array
+            //cannot use delete [i] because it leaves an unoccupied space;
+            //Use splice ([i], 1) (i is the item targeted, 1 item deleted)
+                if (contact === contactList[i]) {contactList.splice([i], 1)}
+
+            }
+        },//end of removeContact function
+        printAllContactNames: function() {
+            let output = ""  //holding string for the looped values below
+            for (let i = 0; i <= contactList.length - 1; i++) {//loop through contact list array by indexed objects)  
+              if (i === contactList.length - 1) {//if it is the last one, just print first and last name
+                      output+= contactList[i].nameFirst + " " + contactList[i].nameLast
+                  }
+                  else {//otherwise, print first and last name followed by a line break 
+                      output+= contactList[i].nameFirst + " " + contactList[i].nameLast + "\n"
+                  }
+              }//end of for loop
+            return output;//return a string output of all the names
+          }//end of printAllContactNames function
     }
-}
-
-
-
-
+}//end of makeContactList function
 // YOUR CODE GOES ABOVE HERE //
 
 
