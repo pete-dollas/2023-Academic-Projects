@@ -5,9 +5,6 @@ FOR INDEX:
 DO TO-DO 1-10.
 All of our bootcamp work will be in gitpod using this repository
 
-ASAP DO FIRST WEBSITE & PORTFOLIO PAGE
-THE REST OF THE WORK RELEASES MONDAY 
-
 STOP AT TO DO 10- CSS
 
 FOR PORTFOLIO:
