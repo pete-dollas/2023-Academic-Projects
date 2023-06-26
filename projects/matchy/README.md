@@ -7,82 +7,56 @@
  - Practice storing Objects in Arrays, and searching, adding, replacing, and removing these Objects based on criteria.
  - Getting use to using `console.log` to inspect your work and debug your code.
 
-## What Javascript you should know already
- - variables
- - looping
- - Objects
- - Arrays
- - Functions
-
-If you don't know any of these concepts, see a Teacher or TA before starting this project!
-
-# Setup
-## Step 1 - Installation
- - Open your Cloud9 workspace for your website project.
- - In the terminal run the command, `os install`. 
- - Note, the first time you run `os install`, you'll be asked to login to GitHub. Be certain to type your credentials carefully.
- - From the list of projects, use the up/down arrows to select `matchy`
- - Note the newly installed `projects/matchy` folder in your website workspace.
-
-## Step 2 - Setting up our Dev Environment
- - Once installed, navigate to and open the files `projects/matchy/data.js` and `projects/matchy/functions.js`. We'll code the project exercises in these two files, starting with Part 1 in `data.js`, then Part 2 in `functions.js`.
- - To run your test, right click on `index.spec.html` and select preview. To view your console logs, click on the pop out box (with the arrow) in the top right corner and open the Console in the Chrome Developement Tools. 
-    - Open the developer console by right clicking anywhere and choosing `inspect element`. Click on the `console` tab in the panel that opens up.
-    - or -
-    - Hit the F12 key.
-    - Hit the CMD + Option + I keys for Mac
- - Preview the `index.html` file to view your animals and their friends! 
-
 # Part 1
 **All work in this section will be done in data.js**
 
 As we code, save and refresh the browser tab running Matchy. Your work will begin to create a web UI, signaling you've correctly coded the exercises. You will also be logging your data to the console, so you can check this output to make sure your code works as expected.
 
 ## Step 1 - Object Creation
- 1. [ ] Open up the file data.js.
- 2. [ ] Create a variable named `animal` and assign it to an empty object.
- 3. [ ] Using **dot notation** give `animal` a **property** named `species` with a value of any animal species.
- 4. [ ] Using **bracket notation** give `animal` a **property** called `name` with a value of your animal`s name.
- 5. [ ] Using either notation, give `animal` a **property** called `noises` with a value of empty array.
- 6. [ ] Print your `animal` Object to the console by adding, `console.log(animal);`,
- 7. [ ] Save your work (command-s || ctrl-s), switch back to the browser tab with your website running, and refresh your page to see what `animal` looks like.
- 8. [ ] It should be something like: 
+ 1. [ x] Open up the file data.js.
+ 2. [ x] Create a variable named `animal` and assign it to an empty object.
+ 3. [ x] Using **dot notation** give `animal` a **property** named `species` with a value of any animal species.
+ 4. [ x] Using **bracket notation** give `animal` a **property** called `name` with a value of your animal`s name.
+ 5. [ x] Using either notation, give `animal` a **property** called `noises` with a value of empty array.
+ 6. [ x] Print your `animal` Object to the console by adding, `console.log(animal);`,
+ 7. [ x] Save your work (command-s || ctrl-s), switch back to the browser tab with your website running, and refresh your page to see what `animal` looks like.
+ 8. [ x] It should be something like: 
 ~~~JS
 { species: 'duck', name: 'Jennifer', noises: [] }
 ~~~
 
 ## Step 2 - Array Creation
- 1. [ ] Create a variable named `noises` and assign it to an empty array.
- 2. [ ] Using **bracket notation** give `noises` it's first element. A string representing a sound your animal might make.
- 3. [ ] Using an array function add another noise to the end of `noises`.
- 4. [ ] Go to the array documentation: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array?redirectlocale=en-US
- 5. [ ] Look through the functions until you find the one that will place an element at the begining of the array.
- 6. [ ] Add an element to `noises` using this function.
- 7. [ ] Using **bracket syntax** again, add another element to the end of `noises`. Make sure that the way you do this step would work no matter how many elements `noises` had. In other words, don't hard code the position of the new element.
- 8. [ ] `console.log` the length of `noises`
- 9. [ ] `console.log` the last element in `noises` again without hard coding the index.
- 10. [ ] `console.log` the whole array.
- 11. [ ] Does it look right?
+ 1. [ x] Create a variable named `noises` and assign it to an empty array.
+ 2. [ x] Using **bracket notation** give `noises` it's first element. A string representing a sound your animal might make.
+ 3. [ x] Using an array function add another noise to the end of `noises`.
+ 4. [ x] Go to the array documentation: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array?redirectlocale=en-US
+ 5. [ x] Look through the functions until you find the one that will place an element at the begining of the array.
+ 6. [ x] Add an element to `noises` using this function.
+ 7. [ x] Using **bracket syntax** again, add another element to the end of `noises`. Make sure that the way you do this step would work no matter how many elements `noises` had. In other words, don't hard code the position of the new element.
+ 8. [ x] `console.log` the length of `noises`
+ 9. [ x] `console.log` the last element in `noises` again without hard coding the index.
+ 10. [x ] `console.log` the whole array.
+ 11. [ x] Does it look right?
  
 
 ## Step 3 - Combining Step 1 and 2
- 1. [ ] Using **bracket syntax**, assign the `noises` property on `animal` to our new `noises` array.
- 2. [ ] Using any syntax add another noise to the `noises` property on `animal`.
- 3. [ ] `console.log` `animal`.
- 4. [ ] Does it look right?
+ 1. [ x] Using **bracket syntax**, assign the `noises` property on `animal` to our new `noises` array.
+ 2. [x ] Using any syntax add another noise to the `noises` property on `animal`.
+ 3. [ x] `console.log` `animal`.
+ 4. [ x] Does it look right?
 
 
 ## Step 4 - Review
- 1. [ ] What are the different ways you can access properties on objects?
- 2. [ ] What are the different ways of accessing elements on  arrays?
+ 1. [ x] What are the different ways you can access properties on objects?
+ 2. [ x] What are the different ways of accessing elements on  arrays?
 
 ## Step 5 - Take a Break!
 It's super important to give your brain and yourself a rest when you can! Grab a drink and have a think! For like 10 minutes, then, **BACK TO WORK!** :)
 
 ## Step 6 - A Collection of Animals
- 1. [ ] Create a variable named `animals` and assign it to an empty array.
- 2. [ ] `push` our `animal` that we created to `animals`. You should now see your first animal appear on your `index.html` page!
- 3. [ ] `console.log` `animals`. What does it look like?
+ 1. [ x] Create a variable named `animals` and assign it to an empty array.
+ 2. [ x] `push` our `animal` that we created to `animals`. You should now see your first animal appear on your `index.html` page!
+ 3. [ x] `console.log` `animals`. What does it look like?
  4. [ ] Create a variable called `duck` and assign it to the data:
   - `{ species: 'duck', name: 'Jerome', noises: ['quack', 'honk', 'sneeze', 'woosh'] }`
  5. [ ] `push` `duck` to `animals`
