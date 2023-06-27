@@ -12,7 +12,7 @@
 // Step 1 - Object Creation //////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-let animal = {}; //1. Create a variable named animal and assign it to an empty object.
+var animal = {}; //1. Create a variable named animal and assign it to an empty object.
 animal.species = "dog"; //2. Using dot notation give animal a property named species with a value of any animal species.
 animal["name"] = "Sage"; //3. Using bracket notation give animal a property called name with a value of your animal`s name.
 animal.noises = []; //4. Using either notation, give animal a property called noises with a value of empty array.
@@ -82,24 +82,54 @@ console.log(animal); //3. console.log animal.
 let animals = []; //1. Create a variable named animals and assign it to an empty array.
 animals.push(animal); //2. push our animal that we created to animals. You should now see your first animal appear on your index.html page!
 console.log(animals); //3. console.log animals
-//What does it look like? 
-//Animals is now an array containing an object animal in index position 0.
+//3. What does it look like? //Animals is now an array containing an object animal in index position 0.
 
-//Create a variable called duck and assign it to the data:
-//{ species: 'duck', name: 'Jerome', noises: ['quack', 'honk', 'sneeze', 'woosh'] }
- 
-animals.push(duck); //push duck to animals
-console.log(animals); //console.log animals. What does it look like?
-//Create two more animal objects each with a species, a name, and at least two sounds sounds and add each one of them to `animals.
-//console.log animals, and, console.log the length of animals. Is everything looking right?
+var duck = { //4. Create a variable called duck object with following pre-assigned key/values
+   species: 'duck', 
+   name: 'Jerome', 
+   noises: ['quack', 'honk', 'sneeze', 'woosh'] 
+   };
+
+animals.push(duck); //5. push duck to animals
+console.log(animals); //6. console.log animals. What does it look like?
+var rattlesnake = {//7. Create two more animal objects each with a species, a name, and at least two sounds sounds and add each one of them to `animals.
+   species: "snake",
+   name: "Ssssam",
+   noises: ["hiss", "rattle"]
+};
+var parrot = {
+   species: "bird",
+   name: "Polly",
+   noises: ["Polly", "Pretty bird!"]
+};
+
+animals.push(parrot);
+animals.push(rattlesnake);//7. Add each one of them to `animals.
+
+console.log(animals);
+console.log(animals.length);//8. console.log animals, and, console.log the length of animals. Is everything looking right?
 
 
 //////////////////////////////////////////////////////////////////////
 // Step 7 - Making Friends ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+//1. If each name from friends were to become fully fleshed out objects, I'd make friends itself be an array of each respective object. 
+//2. If it will never be more than just names, an array of strings would be fine. 
+var friends = []; //3. Create a variable called `friends` and assign it to the data structure that you chose.
 
+//4. Take a look at the documentation for `Math.random` here: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
 
+function getRandom(array){//5. Write a function called `getRandom` that takes our `animals` array
+   let num = array.length
+   return Math.floor(Math.random() * num) //returns  a random `index` of the input array, using `Math.random`
+   }   
+   console.log(animals[getRandom(animals)].name);
+   friends.push(animals[getRandom(animals)]["name"]) //6. Using a random index from this function that you just created, get a random animal and add its `name` to `friends`.
+   console.log(friends); //7. `console.log` `friends`.
+   animals[1]["friends"] = friends;//8. Using **bracket notation**, add the `friends` list as a **property** also named `friends` on one of the animals in the `animals` array
+   console.log(animals[1]["friends"]);//9. `console.log` your work.
+   
 /**
  * Nice work! You're done Part 1. Pat yourself on the back and
  * move onto Part 2 in the file called "functions.js"
@@ -110,7 +140,7 @@ console.log(animals); //console.log animals. What does it look like?
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-var animal, noises, animals, friends, getRandom;
+//var animal, noises, animals, friends, getRandom;
 if((typeof process !== 'undefined') &&
    (typeof process.versions.node !== 'undefined')) {
      module.exports.animal = animal || null;
