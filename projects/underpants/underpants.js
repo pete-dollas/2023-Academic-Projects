@@ -21,6 +21,9 @@ var _ = {};
 *   _.identity({a: "b"}) === {a: "b"}
 */
 
+_.identity = function(value) {
+    return value;
+}
 
 /** _.typeOf
 * Arguments:
@@ -41,7 +44,17 @@ var _ = {};
 * _.typeOf("javascript") -> "string"
 * _.typeOf([1,2,3]) -> "array"
 */
-
+_.typeOf = function (value) {
+    typeOf(value);
+    if (typeOf(value) === "string") {return "string"}
+    else if (typeOf(value) === "array") {return "array"}
+    else if (typeOf(value) === "object") {return "object"}
+    else if (typeOf(value) === "undefined") {return "undefined"}
+    else if (typeOf(value) === "number") {return "number"}
+    else if (typeOf(value) === "boolean") {return "boolean"}
+    else if (typeOf(value) === "null") {return "null"}
+    else if (typeOf(value) === "function") {return "function"}
+}
 
 /** _.first
 * Arguments:
