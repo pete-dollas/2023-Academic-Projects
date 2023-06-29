@@ -164,17 +164,41 @@ function isFriend(name, object) {//input a name and object
 }
 
 
-//25
+//25 SOLVED
+
 //////////////////////////////////////////////////////////////////////
 // Function 13 - Non-Friends /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 //Should take a name and a list of people, 
 //return a list of all the names that <name> is not friends with
 
-function nonFriends(name, array) {//Input name(1-word string) and array of names(1-word strings)
-
-}
-
+//takes in a name and an object; return an array of string names that are NOT already friends with this object
+function nonFriends(name, array) {//Input name(1-word string) and an array of objects
+    let output = []; //empty array container to receive string values of all object key names;  will subsequently be validated
+    //first, push all names to output  
+  for (let index of array){//
+    if (index.name !== name) {//push everyone else's name to the output array
+      output.push(index.name)
+    }
+  }
+  //run through his friends list; if it matches output, delete it from output
+    for (let i = 0; i < array.length; i++){
+     if (array[i].name === name) {
+       for (let j = 0; j < array[i].friends.length; j++){
+         for (let k = 0; k < output.length; k++) {
+           if (array[i].friends[j] === output[k]) {
+             output.splice(k, 1)
+           }
+         }
+       }
+     }
+    }
+  
+  
+    
+    return output;//output is an array of string values for each object key's string value not already present in the object's friends array; 
+    //edge case: should not include its own key name as a string
+  } //close of function
 
 //26
 //////////////////////////////////////////////////////////////////////

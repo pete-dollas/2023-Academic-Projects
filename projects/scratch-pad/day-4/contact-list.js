@@ -55,6 +55,8 @@ function makeContactList() {//accepts an input of number(id), string(nameFirst),
         addContact: function(contact) { //input a contact via makeContact and its 3 associated parameters
           contactList.push(contact);//push this object to the contact list array
         },
+
+        
         findContact: function(fullName) {//input a contact via makeContact and its 3 associated parameters
             for (let i = 0; i <= contactList.length - 1; i++) {//loop through contact list array by indexed objects
                 //if fullName string matches an object first and last name, return the indexed object
@@ -62,6 +64,8 @@ function makeContactList() {//accepts an input of number(id), string(nameFirst),
                 else {return undefined}//else return undefined
             }//closing braces to for loop within findContact
         },//closing braces to findContact
+
+
         removeContact: function(contact) {//input a contact via makeContact and its 3 associated parameters
             for (let i = 0; i <= contactList.length - 1; i++) {//loop through contact list array by indexed objects
             //CONTACT PARAMETER IS TAKING THIS AS AN ARGUMENT: contacts.findContact('firstname lastname')
