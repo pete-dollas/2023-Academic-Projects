@@ -1,5 +1,5 @@
 
-//13
+//13 - SOLVED
 //////////////////////////////////////////////////////////////////////
 // Function 1 - Object Values ////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
@@ -13,7 +13,7 @@ function objectValues(object) {//input an object
     return output;
 } 
 
-//14
+//14 - SOLVED
 //////////////////////////////////////////////////////////////////////
 // Function 2 - Keys to String ///////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
@@ -28,14 +28,20 @@ function keysToString(object) {
   } 
 
 
-//15
+//15 - SOLVED
 //////////////////////////////////////////////////////////////////////
 // Function 3 - Values to String /////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 //Should take an object and return all its string values in a string each separated with a space
 
-function valuesToString(object) {
-    
+function valuesToString(object) {//input an object
+    let output = [];//array to hold all string values; will .join() them at return
+    for (let key in object) {//loop into each key
+        if (typeof object[key] === "string"){//if the key value is a string...
+            output.push(object[key])///push it to the output array
+        }
+    }
+    return output.join(" ");    //return only string values, separated with space
 }
 
 //16
@@ -44,10 +50,14 @@ function valuesToString(object) {
 //////////////////////////////////////////////////////////////////////
 //Should take one argument and return 'array' if its an array and 'object' if its an object
 
-function arrayOrObject(collection) {
-    
+function arrayOrObject(collection) {//accept any input
+     if (typeof collection === "object" && collection instanceof Array === false) {
+        return "object"
+    }
+    else if (collection instanceof Array) {
+        return "array"
+    }
 }
-
 
 //17
 //////////////////////////////////////////////////////////////////////
