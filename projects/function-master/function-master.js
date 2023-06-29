@@ -44,7 +44,7 @@ function valuesToString(object) {//input an object
     return output.join(" ");    //return only string values, separated with space
 }
 
-//16
+//16 - SOLVED
 //////////////////////////////////////////////////////////////////////
 // Function 4 - Array or Object //////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
@@ -59,90 +59,108 @@ function arrayOrObject(collection) {//accept any input
     }
 }
 
-//17
+//17 SOLVED
 //////////////////////////////////////////////////////////////////////
 // Function 5 - Capitalize Word //////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 //Should take a string of one word, and return the word with its first letter capitalized
 
-function capitalizeWord(string) {
-    
+function capitalizeWord(string) {//input a 1-word string
+    return `${string.slice(0, 1).toUpperCase()}${string.slice(1, string.length)}`
+    //return the word with first letter capitalized
 }
 
 
-//18
+//18 - SOLVED
 //////////////////////////////////////////////////////////////////////
 // Function 6 - Capitalize All Words /////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 //Should take a string of words and return a string with all the words capitalized
 
-function capitalizeAllWords(string) {
-    
+function capitalizeAllWords(string) {//input string of words
+    let strings = string.split(" "); //temporary array to hold all strings
+    let output = [];//output array to hold capitalized strings; will .join() at return
+    for (let i = 0; i <= strings.length - 1; i ++){
+        output.push(`${strings[i].slice(0, 1).toUpperCase()}${strings[i].slice(1, string.length)}`)
+    }
+    return output.join(" ");//return capitalized strings
 }
 
 
-//19
+//19 SOLVED
 //////////////////////////////////////////////////////////////////////
 // Function 7 - Welcome Message //////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 //Should take an object with a name property and return 'Welcome <Name>!'
 
-function welcomeMessage(object) {
+function welcomeMessage(object) {//input an object with a name property
 
+    return `Welcome ${object.name.slice(0, 1).toUpperCase()}${object.name.slice(1, object.name.length)}!`    //return "Welcome <Name>!"
 }
 
 
-//20
+//20 SOLVED
 //////////////////////////////////////////////////////////////////////
 // Function 8 - Profile Info /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-//Should take an object with a name an a species and return '<Name> is a <Species>'
+//Should take an object with a name and a species and 
+//return '<Name> is a <Species>'
 
-function profileInfo(object) {
+function profileInfo(object) {//input an object
+    if (object.name && object.species) {
+        return `${object.name.slice(0, 1).toUpperCase()}${object.name.slice(1, object.name.length)} is a ${object.species.slice(0, 1).toUpperCase()}${object.species.slice(1, object.species.length)}`
+    }
+    }
 
-}
-
-//21
+//21 SOLVED
 //////////////////////////////////////////////////////////////////////
 // Function 9 - Maybe Noises /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-//Should take an object, if this object has a noises array return them as a string separated by a space, if there are no noises return 'there are no noises'
+//Should take an object, if this object has a noises array 
+//return them as a string separated by a space, if there are no noises return 'there are no noises'
 
-function maybeNoises(object) {
-
+function maybeNoises(object) {//input an object
+if (object.noises && object.noises != "") {
+    return object.noises.join(" ")}
+else {
+    return "there are no noises"}
 }
 
 
-//22
+//22 SOLVED
 //////////////////////////////////////////////////////////////////////
 // Function 10 - Has Words ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 //Should take a string of words and a word and return true if <word> is in <string of words>, otherwise return false."
 
-function hasWord(string, word) {
-
+function hasWord(string, word) {//input a string of words and a 1-word string
+if (string.includes(word))
+    {return true}
+    else {return false}
 }
 
 
-//23
+//23 SOLVED
 //////////////////////////////////////////////////////////////////////
 // Function 11 - Add Friend //////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 //Should take a name and an object and add the name to the object's friends array then return the object
 
-function addFriend (name, object) {
-
+function addFriend (name, object) {//input a name and an object
+    object.friends.push(name)// add the name to the object's friends array
+    return object;//return the object
 }
 
 
-//24
+//24 SOLVED
 //////////////////////////////////////////////////////////////////////
 // Function 12 - Is Friend ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 //Should take a name and an object and return true if <name> is a friend of <object> and false otherwise"
 
-function isFriend(name, object) {
-
+function isFriend(name, object) {//input a name and object
+    if (object.friends && object.friends.includes(name)) {return true}
+    return false;
 }
 
 
@@ -150,9 +168,10 @@ function isFriend(name, object) {
 //////////////////////////////////////////////////////////////////////
 // Function 13 - Non-Friends /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-//Should take a name and a list of people, and return a list of all the names that <name> is not friends with
+//Should take a name and a list of people, 
+//return a list of all the names that <name> is not friends with
 
-function nonFriends(name, array) {
+function nonFriends(name, array) {//Input name(1-word string) and array of names(1-word strings)
 
 }
 
