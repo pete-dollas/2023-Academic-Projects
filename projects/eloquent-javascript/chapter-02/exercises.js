@@ -10,7 +10,7 @@ function triangles(num){
     {hash += "#"; console.log(hash)}
   }
 
-
+//2 SOLVED
 ////////////////////////////////////////////////////////////////////////////////
 // fizzBuzz ////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
@@ -19,13 +19,13 @@ function fizzBuzz() {
   for (let i = 1; i <= 15; i++){
     //exception 1 - if divisible by 3 (but not also by 5), print "Fizz" instead of number
     
-    if (i %3 === 0 && i %5 !== 0) {console.log("Fizz")} 
+    if (i %3 === 0 && i %5 !== 0) {console.log("fizz")} 
     
     //exception 2 - if divisible by 5 (but not also by 3), print "Buzz" instead of number
-    else if (i %5 === 0 && i %3 !== 0) {console.log("Buzz")}
+    else if (i %5 === 0 && i %3 !== 0) {console.log("buzz")}
     
     //exception 3 - if divisible by both 3 & 5, print "FizzBuzz" instead of number
-    else if (i %3 ===0 && i %5 === 0) {console.log("FizzBuzz")}
+    else if (i %3 ===0 && i %5 === 0) {console.log("fizzbuzz")}
     //otherwise, print the number
     else (console.log(i))}
 }
