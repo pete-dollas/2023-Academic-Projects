@@ -34,31 +34,42 @@ function fizzBuzz() {
 // drawChessboard //////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function drawChessboard(num) {
-    var board = ""
-    var o = " "
-    var x = "#"
-    for (let height = 1; height <= num; height++) {
-    for (let width = 1;  width <= num;  width++) {
-    if (height === 1) {
-      if (width %2 !== 0) {board += o}
-    else {board += x}
+function drawChessboard(num){
+  var board = [];
+  var o = " ";
+  var x = "#";
+  let odd = "";
+  let even = "";
+  
+  
+  for (let height = 0; height <= num; height++){ //height is key, value is an array
+      //o = odd start
+      //x = even start
+    if (num === 0) {return ""}  
+    else if (height === 1) {
+      odd+= o
     }
-      else if (height %2 !== 0) {
-    if (width === 1) {board += "\n"; board += o}
-    else if (width %2 !== 0 && width > 1) {board += o}
-    else {board += x} 
-      }
-    else {
-      if (width === 1) {board += "\n"; board += x}
-    else if (width %2 !== 0 && width > 1) {board += x}
-    else {board += o}
+    else if (height === 2) { 
+      odd+= x;
+      even+= x;
+      even+= o;
     }
-      
+    else if (height %2 !== 0 && height >= 3) { //odd numbers 3+
+      odd+= o
+      even+= x
     }
+    else if (height %2 === 0 && height >= 4) { //even numbers 4+ 
+     odd+= x
+     even+= o
     }
-    return board;
+  }
+    for(let j = 1; j <= num; j++){
+    if (j %2 !== 0) {board.push(odd)}
+    else if (j %2 === 0) {board.push(even)}
     }
+    let almost = board.join('\n')
+    return console.log(almost+= `\n`)
+  }//chessboard end
 
 
 ////////////////////////////////////////////////////////////////////////////////
