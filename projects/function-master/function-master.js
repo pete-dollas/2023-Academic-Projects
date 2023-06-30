@@ -200,37 +200,63 @@ function nonFriends(name, array) {//Input name(1-word string) and an array of ob
     //edge case: should not include its own key name as a string
   } //close of function
 
-//26
+//26 SOLVED
 //////////////////////////////////////////////////////////////////////
 // Function 14 - Update Object ///////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-//Should take an object, a key and a value. Should update the property <key> on <object> with new <value>. If <key> does not exist on <object> create it.
+//Should take an object, a key and a value. 
+//Should update the property <key> on <object> with new <value>. 
+//If <key> does not exist on <object> create it.
 
-function updateObject(object, key, value) {
-
-}
+function updateObject(object, key, value) {//input an object, a key, and value
+    if (!object[key]) {object[key] = value}
+      //if (!object[key]) {object[key]}
+      else {object[key] = value}
+    
+    return object;
+    }
 
 
 //27.
 //////////////////////////////////////////////////////////////////////
 // Function 15 - Remove Properties ///////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-//Should take an object and an array of strings. Should remove any properties on <object> that are listed in <array>"
+//Should take an object and an array of strings. 
+//Should remove any properties on <object> that are listed in <array>"
 
-function removeProperties(object, array) {
+function removeProperties(object, array) {//input an object and an array of key names as strings
+    for (let i = 0; i <= array.length - 1; i++){
+        for (let key in object) {
+          if (key === array[i])
+          {delete object[key]}
+        }
+       // if (object[array[i]] === true) {
+       // delete object[array[i]]}
+        }
+    return object;
+    }
 
-}
 
-
-//28
+//28 - SOLVED
 //////////////////////////////////////////////////////////////////////
 // Function 16 - Dedup ///////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 //Should take an array and return an array with all the duplicates removed
 
 function dedup(array) {
-
-}
+    let newArr = array.sort();
+    let j = 1;
+      let original = 0;
+    while(j <= newArr.length){
+      
+      console.log(newArr)
+      console.log(original + " " + j)
+    if (newArr[original] !== newArr[j]) {original +=1;j+=1}
+      else 
+      {newArr.splice(j, 1)}//
+    }
+    return newArr;
+    }
 
 
 //////////////////////////////////////////////////////////////////////
