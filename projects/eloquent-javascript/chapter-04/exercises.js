@@ -66,9 +66,11 @@ console.log(sum(array1))
 //Neither may use the standard reverse method.”
 
 //May NOT use the standard reverse method.”
-function reverseArray(array) {//takes an array as argument  
-
-
+function reverseArray(array) {//takes an array as argument  --//NEW ARRAY
+let newArr = [];
+for (let i = 0; i < array.length; i++){
+  newArr.unshift(array[i])
+}
   return newArr; //produces a new array that has the same elements in the inverse order.
 }
 
@@ -77,8 +79,16 @@ function reverseArray(array) {//takes an array as argument
 ////////////////////////////////////////////////////////////////////////////////
 
 //May NOT use the standard reverse method.”
-function reverseArrayInPlace() {
-
+function reverseArrayInPlace(array) {//RETURN THE ORIGINAL ARRAY - SO MAKE NEW ARR, THEN SET ORIGINAL TO NEW, THEN RETURN
+  let newArr = [];
+  for (let i = 0; i < array.length; i++){
+    newArr.unshift(array[i])
+  }
+  for (let j = 0; j < newArr.length; j++){
+    array.shift();
+    array.push(newArr[j]);
+  }
+    return array; //produces a new array that has the same elements in the inverse order.
 }
 
 ////////////////////////////////////////////////////////////////////////////////
