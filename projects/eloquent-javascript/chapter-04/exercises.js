@@ -53,7 +53,7 @@ let array1 = [1, 2, 3, 6, 9];
 console.log(sum(array1))
 
 
-
+//SOLVED
 ////////////////////////////////////////////////////////////////////////////////
 // reverseArray ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
@@ -65,6 +65,8 @@ console.log(sum(array1))
 // The second, reverseArrayInPlace, does what the reverse method does: it modifies the array given as argument by reversing its elements. 
 //Neither may use the standard reverse method.”
 
+
+//SOLVED
 //May NOT use the standard reverse method.”
 function reverseArray(array) {//takes an array as argument  --//NEW ARRAY
 let newArr = [];
@@ -78,6 +80,8 @@ for (let i = 0; i < array.length; i++){
 // reverseArrayInPlace /////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
+
+//SOLVED
 //May NOT use the standard reverse method.”
 function reverseArrayInPlace(array) {//RETURN THE ORIGINAL ARRAY - SO MAKE NEW ARR, THEN SET ORIGINAL TO NEW, THEN RETURN
   let newArr = [];
@@ -95,8 +99,23 @@ function reverseArrayInPlace(array) {//RETURN THE ORIGINAL ARRAY - SO MAKE NEW A
 // arrayToList /////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 //“Write a function arrayToList that builds up a list structure like the one shown when given [1, 2, 3] as argument. 
+//EXAMPLE
+/*
+let list = {
+    value: 1,
+    rest: {
+      value: 2, 
+      rest: { 
+        value: 3, 
+        rest: null 
+      } 
+    }
+  };
+*/
+
 //Also write a listToArray function that produces an array from a list. 
-//Then add a helper function prepend, which takes an element and a list and creates a new list that adds the element to the front of the input list, and nth, which takes a list and a number and returns the element at the given position in the list (with zero referring to the first element) or undefined when there is no such element.
+//Then add a helper function prepend, which takes an element and a list and creates a new list that adds the element to the front of the input list, 
+//and nth, which takes a list and a number and returns the element at the given position in the list (with zero referring to the first element) or undefined when there is no such element.
 //If you haven’t already, also write a recursive version of nth.”
 
 
