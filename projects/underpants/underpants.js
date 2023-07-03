@@ -3,7 +3,26 @@
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode
 'use strict';
 
+const { truncate } = require("lodash");
+
 var _ = {};
+
+//create a version of a functional library- when a developer creates a published library of functions
+//we are mimicking the underscore library 
+//some of these will be higher order and others won't
+//if the instructions state that it has a function as an argument or return , it is HO
+//I will be adding properties to var on line 6 and each property is a function
+/**
+ * they will all look like this to start 
+ * 
+ _.NAME = function(value) {
+    
+    }
+
+    once that is done, I am basically just making a function out of it based on the instructions
+    I should probably use replit to tinker with them 
+    I dont need to prioritize looking for opportunities to use the new higher order functions like Map or Reduce. Just solve them however i can
+ */
 
 
 /**
@@ -45,15 +64,14 @@ _.identity = function(value) {
 * _.typeOf([1,2,3]) -> "array"
 */
 _.typeOf = function (value) {
-    typeOf(value);
-    if (typeOf(value) === "string") {return "string"}
-    else if (typeOf(value) === "array") {return "array"}
-    else if (typeOf(value) === "object") {return "object"}
-    else if (typeOf(value) === "undefined") {return "undefined"}
-    else if (typeOf(value) === "number") {return "number"}
-    else if (typeOf(value) === "boolean") {return "boolean"}
-    else if (typeOf(value) === "null") {return "null"}
-    else if (typeOf(value) === "function") {return "function"}
+    if (typeof value  === "string") {return "string"}
+    else if (typeof value === "object" && value instanceof Array === true) {return "array"}
+    else if (value === null) {return "null"}
+    else if (typeof value  === "object") {return "object"}
+    else if (typeof value  === "undefined") {return "undefined"}
+    else if (typeof value  === "number") {return "number"}
+    else if (typeof value  === "boolean") {return "boolean"}
+    else if (typeof value  === "function") {return "function"}
 }
 
 /** _.first
@@ -73,6 +91,18 @@ _.typeOf = function (value) {
 *   _.first(["a", "b", "c"], 1) -> "a"
 *   _.first(["a", "b", "c"], 2) -> ["a", "b"]
 */
+_.first = function (array, num) {
+let output = [];
+    if (typeof array === "object" && array instanceof Array === true) {
+        let number = num; 
+        if (num < 0) {return []}
+        if (num > array.length) {number = array.length}
+        else if (num === "" || typeof num !== "number") {return array[0]}
+        for (let i = 0; i < number; i++) {
+            output.push(array[i])}
+        return output;} //closing braces to array typeof 
+    else {return []}
+}//closing braces
 
 
 /** _.last
@@ -92,7 +122,15 @@ _.typeOf = function (value) {
 *   _.last(["a", "b", "c"], 1) -> "c"
 *   _.last(["a", "b", "c"], 2) -> ["b", "c"]
 */
-
+_.last = function(array, number) {
+    if (typeof array === "object" && array instanceof Array !== true) {
+        return []
+    }
+    if (number === "" || typeof number !== "number") {
+        return array[array.length - 1]
+    }
+    //need to make a reverse loop to push or unshift the last number items and return them
+}
 
 /** _.indexOf
 * Arguments:
