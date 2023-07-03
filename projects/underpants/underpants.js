@@ -3,7 +3,9 @@
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode
 'use strict';
 
-const { truncate } = require("lodash");
+
+//CONFIRM WHAT LINE 8 SHOULD LOOK LIKE OR IF I SOMEHOW PASTED IT THERE BY MISTAKE; IT THREW AN ERROR MESSAGE 
+//const { truncate } = require("lodash");
 
 var _ = {};
 
