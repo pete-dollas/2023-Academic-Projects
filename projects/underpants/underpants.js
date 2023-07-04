@@ -138,7 +138,16 @@ _.last = function(array, number) {
     if (number === "" || typeof number !== "number") {
         return array[array.length - 1]
     }
-    //need to make a reverse loop to push or unshift the last number items and return them
+    if (number < 0) {return []}
+    if (number > array.length) {return array}
+    let output = [];
+    let counter = number
+    while (counter > 0)  {
+    for (let i = [array.length - 1]; i > 0; i--) {
+        output.unshift(array[i]);
+        counter --;
+    }}
+    return output;//need to make a reverse loop to push or unshift the last number items and return them
 }
 
 

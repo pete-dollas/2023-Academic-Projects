@@ -110,5 +110,32 @@ module.exports.identity = identity;
 
 //4 
 /**
- * last: 
+ * last: Designed to return the last n items in an array, else just the last element or empty array if invalid arguments are passed.
+ * 
+ * @param {array} array: an array to be passed; if no array is passed it will return []
+ * @param {num} number: a positive number to be passed
+ */
+function last(array, number) {
+    if (typeof array === "object" && array instanceof Array !== true) {
+        return []
+    }
+    if (number === "" || typeof number !== "number") {
+        return array[array.length - 1]
+    }
+    if (number < 0) {return []}
+    if (number > array.length) {return array}
+    let output = [];
+    let counter = number
+    while (counter > 0)  {
+    for (let i = [array.length - 1]; i > 0; i--) {
+        output.unshift(array[i]);
+        counter --;
+    }}
+    return output;
+}
+module.exports.last = last
+
+//5
+/**
+ * 
  */
