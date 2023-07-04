@@ -247,7 +247,7 @@ _.unique = function(array){
     return output;
 }
 
-//9
+//9 NEED TO DO EXTRA CREDIT
 /** _.filter
 * Arguments:
 *   1) An array
@@ -309,7 +309,7 @@ _.reject = function(array, func){
     return output;
 }
 
-//11
+//11 SOLVED
 /** _.partition
 * Arguments:
 *   1) An array
@@ -340,7 +340,7 @@ _.partition = function(array, func){
     }
     return output;
 }
-//12
+//12 SOLVED
 /** _.map
 * Arguments:
 *   1) A collection
@@ -356,6 +356,21 @@ _.partition = function(array, func){
 * Examples:
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
 */
+_.map = function(collection, func){
+    let output = [];
+    if (collection instanceof Array === true) {
+        for (let i = 0; i  < collection.length; i++){
+            output.push(func(collection[i], i, collection))
+        }
+    }
+    if (typeof collection === "object" && collection instanceof Array === false) {
+        for (let key in collection){
+            output.push(func(collection[key], key, collection))
+        }
+    }
+    return output;
+}
+
 
 //13
 /** _.pluck

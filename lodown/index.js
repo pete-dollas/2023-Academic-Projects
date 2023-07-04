@@ -236,7 +236,7 @@ function reject(array, func){
 }
 module.exports.reject = reject
 
-//11
+//11 SOLVED
 /**
  * partition: Designed to call a function on an array and return truthy values and falsy values
  * @param {array} array: an array to be passed
@@ -256,11 +256,27 @@ function partition(array, func){
 }
 module.exports.partition = partition
 
-//12
+//12 SOLVED
 /**
- * map
- * 
+ * map: Designed to call a function on each element in an array or object and return the values
+ * @param {collection} collection: a collection to be passed; can be an array or an object
+ * @param {funct} function: a function to be passed
  */
+function map(collection, func){
+    let output = [];
+    if (collection instanceof Array === true) {
+        for (let i = 0; i  < collection.length; i++){
+            output.push(func(collection[i], i, collection))
+        }
+    }
+    if (typeof collection === "object" && collection instanceof Array === false) {
+        for (let key in collection){
+            output.push(func(collection[key], key, collection))
+        }
+    }
+    return output;
+}
+module.exports.map = map
 
 //13
 /**
