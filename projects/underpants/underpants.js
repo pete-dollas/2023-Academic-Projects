@@ -328,7 +328,18 @@ _.reject = function(array, func){
 *   }); -> [[2,4],[1,3,5]]
 }
 */
-
+_.partition = function(array, func){
+    let output = [[], []];
+    for (let i = 0; i < array.length; i++) {
+        if (func(array[i], i, array) == true) {
+            output[0].push(array[i])
+        }
+        if (func(array[i], i, array) == false) {
+            output[1].push(array[i])
+        }
+    }
+    return output;
+}
 //12
 /** _.map
 * Arguments:

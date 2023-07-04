@@ -238,9 +238,23 @@ module.exports.reject = reject
 
 //11
 /**
- * partition
- * 
+ * partition: Designed to call a function on an array and return truthy values and falsy values
+ * @param {array} array: an array to be passed
+ * @param {funct} function: a function to be passed
  */
+function partition(array, func){
+    let output = [[], []];
+    for (let i = 0; i < array.length; i++) {
+        if (func(array[i], i, array) == true) {
+            output[0].push(array[i])
+        }
+        if (func(array[i], i, array) == false) {
+            output[1].push(array[i])
+        }
+    }
+    return output;
+}
+module.exports.partition = partition
 
 //12
 /**
