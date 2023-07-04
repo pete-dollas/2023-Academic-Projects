@@ -167,5 +167,25 @@ module.exports.contains = contains
 
 //7
 /**
+ * each: Designed to call a function once for each element if using an array, or property if using an object.
+ * 
+ * @param {collection} collection: a collection to be passed; can be an array or an object
+ * @param {funct} function: a function to be passed
+ */
+function each(collection, func){
+    if (collection instanceof Array === true) {
+        for (let i = 0; i < collection.length; i++) {
+            funct(collection[i], i, collection)
+        }
+    }
+    else if (typeof collection === "object") {
+        for (let entry in collection) {
+            funct(collection[entry], entry, collection)
+        }
+    }
+}
+
+//8
+/**
  * 
  */

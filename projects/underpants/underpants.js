@@ -206,6 +206,8 @@ _.contains = function(array, value) {
 * Objectives:
 *   1) if <collection> is an array, call <function> once for each element
 *      with the arguments:
+        //[1, 2, 3], console.log
+        console.log(1, 0, )
 *         the element, it's index, <collection>
 *   2) if <collection> is an object, call <function> once for each property
 *      with the arguments:
@@ -214,7 +216,18 @@ _.contains = function(array, value) {
 *   _.each(["a","b","c"], function(e,i,a){ console.log(e)});
 *      -> should log "a" "b" "c" to the console
 */
-
+_.each = function(collection, funct) {
+    if (collection instanceof Array === true) {
+        for (let i = 0; i < collection.length; i++) {
+            funct(collection[i], i, collection)
+        }
+    }
+    else if (typeof collection === "object") {
+        for (let entry in collection) {
+            funct(collection[entry], entry, collection)
+        }
+    }
+}
 
 
 //8
