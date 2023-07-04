@@ -190,7 +190,12 @@ return -1
 * Examples:
 *   _.contains([1,"two", 3.14], "two") -> true
 */
-
+_.contains = function(array, value) {
+    for (let i = 0; i < array.length; i++){
+        if (array[i] === value) return true }
+    
+    return false;
+}
 
 
 //7

@@ -149,3 +149,23 @@ function indexOf(array, value){
     return -1
 }
 module.exports.indexOf = indexOf
+
+//6
+/**
+ * contains: Designed to return true if <array> contains <value>
+ * 
+ * @param {array} array: an array to be passed
+ * @param {value} value: any value to be passed
+ */
+function contains(array, value){
+    for (let i = 0; i < array.length; i++){
+        if (array[i] === value) return true }
+    
+    return false;
+}
+module.exports.contains = contains
+
+//7
+/**
+ * 
+ */
