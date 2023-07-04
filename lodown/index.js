@@ -58,7 +58,7 @@ module.exports.each = each;
 */
 
 
-//1 
+//1 SOLVED
 /**
  * identity: Designed to take in a value and return it unchanged.
  * 
@@ -69,7 +69,7 @@ function identity(value){
 }
 module.exports.identity = identity;
 
-//2
+//2 SOLVED
 /**
  * typeof: Designed to return the specific type of any value, including arrays and null.
  * 
@@ -85,9 +85,9 @@ module.exports.identity = identity;
     else if (typeof value  === "boolean") {return "boolean"}
     else if (typeof value  === "function") {return "function"}
  }
- module.exports.typeOf = typeOf
+ module.exports.typeOf = typeOf;
 
- //3
+ //3 SOLVED
  /**
   * first: Designed to return the first n items in an array, else just the first element or empty array if invalid arguments are passed.
   * 
@@ -106,9 +106,9 @@ module.exports.identity = identity;
             return output;} 
         else {return []}
     }
-    module.exports.first = first
+    module.exports.first = first;
 
-//4 
+//4 SOLVED
 /**
  * last: Designed to return the last n items in an array, else just the last element or empty array if invalid arguments are passed.
  * 
@@ -133,9 +133,9 @@ function last(array, number) {
     }}
     return output;
 }
-module.exports.last = last
+module.exports.last = last;
 
-//5
+//5 SOLVED
 /**
  * indexOf: Designed to return the index of <array> that is the first occurrance of <value>, else -1 if not found
  * 
@@ -148,9 +148,9 @@ function indexOf(array, value){
     }
     return -1
 }
-module.exports.indexOf = indexOf
+module.exports.indexOf = indexOf;
 
-//6
+//6 SOLVED
 /**
  * contains: Designed to return true if <array> contains <value>
  * 
@@ -163,9 +163,9 @@ function contains(array, value){
     
     return false;
 }
-module.exports.contains = contains
+module.exports.contains = contains;
 
-//7
+//7 SOLVED
 /**
  * each: Designed to call a function once for each element if using an array, or property if using an object.
  * 
@@ -184,8 +184,79 @@ function each(collection, func){
         }
     }
 }
+module.exports.each = each
 
-//8
+//8 SOLVED
 /**
+ * unique: Designed to return a new array of all elements from input array with duplicates removed
+ * * @param {array} array: an array to be passed
+ */
+function each(array){
+    let output = [];
+    for (let i = 0; i < array.length; i++){
+        if (_.indexOf(output, array[i]) === -1) {
+            output.push(array[i])
+        }
+    }
+    return output;
+}
+module.exports.unique = unique;
+
+//9
+/**
+ * filter
+ * @param {array} array: an array to be passed
+ * @param {funct} function: a function to be passed
+ */
+function filter(array, func){
+
+}
+module.exports.filter = filter
+
+//10
+/**
+ * reject
  * 
+ */
+
+//11
+/**
+ * partition
+ * 
+ */
+
+//12
+/**
+ * map
+ * 
+ */
+
+//13
+/**
+ * pluck
+ */
+
+//14
+/**
+ * every
+ * 
+ */
+
+//15
+/**
+ * some
+ * 
+ */
+
+//16
+/**
+ * reduce
+ * 
+ */
+
+//17
+/**
+ * extend: 
+ * @param {obj1} obj1: an object to be passed
+ * @param {obj2} obj2: an additional object to be passed
  */

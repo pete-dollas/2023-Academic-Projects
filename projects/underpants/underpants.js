@@ -3,10 +3,6 @@
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode
 'use strict';
 
-
-//CONFIRM WHAT LINE 8 SHOULD LOOK LIKE OR IF I SOMEHOW PASTED IT THERE BY MISTAKE; IT THREW AN ERROR MESSAGE 
-//const { truncate } = require("lodash");
-
 var _ = {};
 
 //create a version of a functional library- when a developer creates a published library of functions
@@ -33,7 +29,7 @@ var _ = {};
 */
 
 
-//1 
+//1 SOLVED
 
 /** _.identity
 * Arguments:
@@ -50,7 +46,7 @@ _.identity = function(value) {
 }
 
 
-//2
+//2 SOLVED
 
 /** _.typeOf
 * Arguments:
@@ -82,6 +78,7 @@ _.typeOf = function (value) {
     else if (typeof value  === "function") {return "function"}
 }
 
+//3 SOLVED
 /** _.first
 * Arguments:
 *   1) An array
@@ -113,7 +110,7 @@ let output = [];
 }//closing braces
 
 
-//4
+//4 SOLVED
 /** _.last
 * Arguments:
 *   1) An array
@@ -151,7 +148,7 @@ _.last = function(array, number) {
 }
 
 
-//5
+//5 SOLVED
 /** _.indexOf
 * Arguments:
 *   1) An array
@@ -175,7 +172,7 @@ return -1
 }
 
 
-//6
+//6 SOLVED
 /** _.contains
 * Arguments:
 *   1) An array
@@ -198,7 +195,7 @@ _.contains = function(array, value) {
 }
 
 
-//7
+//7 SOLVED
 /** _.each
 * Arguments:
 *   1) A collection
@@ -230,7 +227,7 @@ _.each = function(collection, funct) {
 }
 
 
-//8
+//8 SOLVED
 /** _.unique
 * Arguments:
 *   1) An array
@@ -240,8 +237,17 @@ _.each = function(collection, funct) {
 * Examples:
 *   _.unique([1,2,2,4,5,6,5,2]) -> [1,2,4,5,6]
 */
+_.unique = function(array){
+    let output = [];
+    for (let i = 0; i < array.length; i++){
+        if (_.indexOf(output, array[i]) === -1) {
+            output.push(array[i])
+        }
+    }
+    return output;
+}
 
-
+//9
 /** _.filter
 * Arguments:
 *   1) An array
@@ -257,8 +263,11 @@ _.each = function(collection, funct) {
 * Extra Credit:
 *   use _.each in your implementation
 */
+_.filter = function(array, func){
 
+}
 
+//10
 /** _.reject
 * Arguments:
 *   1) An array
@@ -272,7 +281,7 @@ _.each = function(collection, funct) {
 *   _.reject([1,2,3,4,5], function(e){return e%2 === 0}) -> [1,3,5]
 */
 
-
+//11
 /** _.partition
 * Arguments:
 *   1) An array
@@ -292,7 +301,7 @@ _.each = function(collection, funct) {
 }
 */
 
-
+//12
 /** _.map
 * Arguments:
 *   1) A collection
@@ -309,7 +318,7 @@ _.each = function(collection, funct) {
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
 */
 
-
+//13
 /** _.pluck
 * Arguments:
 *   1) An array of objects
@@ -321,7 +330,7 @@ _.each = function(collection, funct) {
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
 
-
+//14
 /** _.every
 * Arguments:
 *   1) A collection
@@ -343,7 +352,7 @@ _.each = function(collection, funct) {
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
 
-
+//15
 /** _.some
 * Arguments:
 *   1) A collection
@@ -365,7 +374,7 @@ _.each = function(collection, funct) {
 *   _.some([1,2,3], function(e){return e % 2 === 0}) -> true
 */
 
-
+//16
 /** _.reduce
 * Arguments:
 *   1) An array
@@ -385,7 +394,7 @@ _.each = function(collection, funct) {
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
 
-
+//17
 /** _.extend
 * Arguments:
 *   1) An Object
