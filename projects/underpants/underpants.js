@@ -32,6 +32,9 @@ var _ = {};
 * Implement each function below its instructions
 */
 
+
+//1 
+
 /** _.identity
 * Arguments:
 *   1) Any value
@@ -45,6 +48,9 @@ var _ = {};
 _.identity = function(value) {
     return value;
 }
+
+
+//2
 
 /** _.typeOf
 * Arguments:
@@ -107,6 +113,7 @@ let output = [];
 }//closing braces
 
 
+//4
 /** _.last
 * Arguments:
 *   1) An array
@@ -134,6 +141,8 @@ _.last = function(array, number) {
     //need to make a reverse loop to push or unshift the last number items and return them
 }
 
+
+//5
 /** _.indexOf
 * Arguments:
 *   1) An array
@@ -151,6 +160,8 @@ _.last = function(array, number) {
 */
 
 
+
+//6
 /** _.contains
 * Arguments:
 *   1) An array
@@ -167,6 +178,8 @@ _.last = function(array, number) {
 */
 
 
+
+//7
 /** _.each
 * Arguments:
 *   1) A collection
@@ -184,6 +197,8 @@ _.last = function(array, number) {
 */
 
 
+
+//8
 /** _.unique
 * Arguments:
 *   1) An array

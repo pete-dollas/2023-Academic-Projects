@@ -4,7 +4,37 @@
 //every function created in underpants needs to have documentation made for it
 //below is  an example of documentation for a function called each
 
+//STEP BY STEP DIRECTIONS
+//1- copy the completed function from underpants
 
+/** _.identity
+* Arguments:
+*   1) Any value
+* Objectives:
+*   1) Returns <value> unchanged
+* Examples:
+*   _.identity(5) === 5
+*   _.identity({a: "b"}) === {a: "b"}
+
+_.identity = function(value) {
+    return value;
+}
+
+//2. turn it into a declaration and delete all the rest
+function identity(value){
+    return value;
+}
+
+//3. use /** to start a code block, and then give a sentence or two to explain what this function does
+
+ * identity: Designed to take in a value and return it unchanged
+ *
+//4. copy params and populate them based on the parameters
+
+//5. the module export statement is module.exports.functionname = functionname
+*/
+
+//FINISHED EXAMPLE
 /**
  * each: Designed to loop over a collection, Array or Object, and applies the 
  * action Function to each value in the collection.
@@ -12,7 +42,7 @@
  * @param {Array or Object} collection: The collection over which to iterate.
  * @param {Function} action: The Function to be applied to each value in the 
  * collection
- */
+ * 
 function each(collection, action) {
     if(Array.isArray(collection)) {
         for(var i = 0; i < collection.length; i++) {
@@ -25,35 +55,60 @@ function each(collection, action) {
     }
 }
 module.exports.each = each;
-
-//STEP BY STEP DIRECTIONS
-//1- copy it 
-
-/** _.identity
-* Arguments:
-*   1) Any value
-* Objectives:
-*   1) Returns <value> unchanged
-* Examples:
-*   _.identity(5) === 5
-*   _.identity({a: "b"}) === {a: "b"}
 */
 
-_.identity = function(value) {
-    return value;
-}
 
-
-//2. turn it into a declaration and delete all the rest
+//1 
+/**
+ * identity: Designed to take in a value and return it unchanged.
+ * 
+ * @param {value} value: any value to be returned
+ */
 function identity(value){
     return value;
 }
+module.exports.identity = identity;
 
-//3. use /** to start a code block, and then give a sentence or two to explain what this function does
-
+//2
 /**
- * identity: Designed to take in a value and return it unchanged
+ * typeof: Designed to return the specific type of any value, including arrays and null.
+ * 
+ * @param {value} value: any value to be returned
  */
-//4. copy params and populate them based on the parameters
+ function typeOf (value) {
+    if (typeof value  === "string") {return "string"}
+    else if (typeof value === "object" && value instanceof Array === true) {return "array"}
+    else if (value === null) {return "null"}
+    else if (typeof value  === "object") {return "object"}
+    else if (typeof value  === "undefined") {return "undefined"}
+    else if (typeof value  === "number") {return "number"}
+    else if (typeof value  === "boolean") {return "boolean"}
+    else if (typeof value  === "function") {return "function"}
+ }
+ module.exports.typeOf = typeOf
 
-//5. the module export statement is module.exports.functionname = functionname
+ //3
+ /**
+  * first: Designed to return the first n items in an array, else just the first element or empty array if invalid arguments are passed.
+  * 
+  * @param {array} array: an array to be passed; if no array is passed it will return []
+  * @param {num} number: a positive number to be passed
+  */
+ function first (array, num) {
+    let output = [];
+        if (typeof array === "object" && array instanceof Array === true) {
+            let number = num; 
+            if (num < 0) {return []}
+            if (num > array.length) {number = array.length}
+            else if (num === "" || typeof num !== "number") {return array[0]}
+            for (let i = 0; i < number; i++) {
+                output.push(array[i])}
+            return output;} 
+        else {return []}
+    }
+    module.exports.first = first
+
+//4 
+/**
+ * last: 
+ */
