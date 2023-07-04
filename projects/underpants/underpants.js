@@ -260,14 +260,32 @@ _.unique = function(array){
 *   1) What if <function> returns something other than true or false?
 * Examples:
 *   _.filter([1,2,3,4,5], function(x){return x%2 === 0}) -> [2,4]
+
+
 * Extra Credit:
 *   use _.each in your implementation
 */
+
 _.filter = function(array, func){
-
+let output = [];
+for (let i = 0; i < array.length; i++) {
+    if (func(array[i], i, array) === true) {
+        output.push(array[i])
+    }
 }
+return output;
+}
+//ALTERNATE SOLUTION IN PROGRESS USING _.EACH
+/*
+_.filter = function(array, func){
+    let output = [];
+    if (_.each(func(array)) === true) {output.push(_.each(func(array)))}
+    return output;
+    }
+*/
 
-//10
+
+//10 SOLVED
 /** _.reject
 * Arguments:
 *   1) An array
@@ -280,6 +298,16 @@ _.filter = function(array, func){
 * Examples:
 *   _.reject([1,2,3,4,5], function(e){return e%2 === 0}) -> [1,3,5]
 */
+
+_.reject = function(array, func){
+    let output = [];
+    for (let i = 0; i < array.length; i++) {
+        if (func(array[i], i, array) === false) {
+            output.push(array[i])
+        }
+    }
+    return output;
+}
 
 //11
 /** _.partition

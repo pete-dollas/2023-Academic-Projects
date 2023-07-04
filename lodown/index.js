@@ -202,22 +202,39 @@ function each(array){
 }
 module.exports.unique = unique;
 
-//9
+//9 SOLVED
 /**
- * filter
+ * filter: Designed to apply a function to an array and return all true values
  * @param {array} array: an array to be passed
  * @param {funct} function: a function to be passed
  */
 function filter(array, func){
-
-}
+    let output = [];
+    for (let i = 0; i < array.length; i++) {
+        if (func(array[i], i, array) === true) {
+            output.push(array[i])
+        }
+    }
+    return output;
+    }
 module.exports.filter = filter
 
-//10
+//10 SOLVED
 /**
- * reject
- * 
+ * reject: Designed to apply a function to an array and return all false values
+ * @param {array} array: an array to be passed
+ * @param {funct} function: a function to be passed
  */
+function reject(array, func){
+    let output = [];
+    for (let i = 0; i < array.length; i++) {
+        if (func(array[i], i, array) === false) {
+            output.push(array[i])
+        }
+    }
+    return output;
+}
+module.exports.reject = reject
 
 //11
 /**
