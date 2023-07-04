@@ -137,5 +137,15 @@ module.exports.last = last
 
 //5
 /**
+ * indexOf: Designed to return the index of <array> that is the first occurrance of <value>, else -1 if not found
  * 
+ * @param {array} array: an array to be passed
+ * @param {value} value: any value to be passed
  */
+function indexOf(array, value){
+    for (let i = 0; i < array.length; i++){
+        if (array[i] === value) {return i}
+    }
+    return -1
+}
+module.exports.indexOf = indexOf

@@ -167,7 +167,12 @@ _.last = function(array, number) {
 *   _.indexOf(["a","b","c"], "c") -> 2
 *   _.indexOf(["a","b","c"], "d") -> -1
 */
-
+_.indexOf = function(array, value) {
+for (let i = 0; i < array.length; i++){
+    if (array[i] === value) {return i}
+}
+return -1
+}
 
 
 //6
