@@ -1,5 +1,7 @@
 'use strict';
 
+const { extendWith } = require("lodash");
+
 // YOU KNOW WHAT TO DO //
 //every function created in underpants needs to have documentation made for it
 //below is  an example of documentation for a function called each
@@ -326,7 +328,7 @@ function every(collection, func) {
 }
 module.exports.every = every
 
-//15
+//15 SOLVED
 /**
  * some: Designed to determine if at least one element in a collection satisfies a given condition.
  * @param {Array|Object} collection: a collection to be passed; can be an array or an object
@@ -369,13 +371,49 @@ module.exports.some = some
 
 //16
 /**
- * reduce
- * 
+ * reduce: Designed to reduce an array into a single value by applying a function to each element.
+ *
+ * @param {Array} array - Array to be passed
+ * @param {Function} func - function to be passed on each element in array
+ * @param {value} seed - value to be passed
  */
+function reduce(array, func, seed){
+    let previous = ""
 
-//17
+    if (seed === undefined) {
+      previous = array[0];
+      for (let i = 1; i < array.length; i++) {
+        previous = func(previous, array[i], i);
+      }
+    } else {
+      previous = seed;
+      for (let i = 0; i < array.length; i++) {
+        previous = func(previous, array[i], i);
+      }
+    }
+    return previous;
+  };
+module.exports.reduce = reduce
+
+
+//17 SOLVED
 /**
- * extend: 
+ * extend: Designed to parse an object; for any number of other objects passed, any new elements will be copied to the original object
  * @param {Object} obj1: an object to be passed
  * @param {Object} obj2: an additional object to be passed
  */
+function extend(obj1, obj2){
+    //for in on obj2, if it is not in obj1, set X = Y
+    for (let i = 1; i < arguments.length; i++){
+        for (let key in arguments[i]){
+            if (!obj1.hasOwnProperty(key)){
+                obj1[key] = arguments[i][key]
+            }
+            if (!obj1.hasOwnProperty(obj2[key])){
+                obj1[key] = arguments[i][key]
+            }
+        }
+    }
+    return obj1;
+}
+module.exports.extend = extend

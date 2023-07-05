@@ -372,7 +372,7 @@ _.map = function(collection, func){
 }
 
 
-//13
+//13 SOLVED
 /** _.pluck
 * Arguments:
 *   1) An array of objects
@@ -442,7 +442,7 @@ _.every = function(collection, func) {
  }
  return true;
 }
-//15
+//15 SOLVED
 /** _.some
 * Arguments:
 *   1) A collection
@@ -497,7 +497,7 @@ _.some = function(collection, func) {
     return false;
   };
 
-//16
+//16 SOLVED
 /** _.reduce
 * Arguments:
 *   1) An array
@@ -516,8 +516,23 @@ _.some = function(collection, func) {
 * Examples:
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
+_.reduce = function(array, func, seed){
+    let previous = ""
 
-//17
+    if (seed === undefined) {
+      previous = array[0];
+      for (let i = 1; i < array.length; i++) {
+        previous = func(previous, array[i], i);
+      }
+    } else {
+      previous = seed;
+      for (let i = 0; i < array.length; i++) {
+        previous = func(previous, array[i], i);
+      }
+    }
+    return previous;
+  };
+//17 SOLVED
 /** _.extend
 * Arguments:
 *   1) An Object
@@ -532,7 +547,20 @@ _.some = function(collection, func) {
 *   _.extend(data, {b:"two"}); -> data now equals {a:"one",b:"two"}
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
-
+_.extend = function(obj1, obj2){
+    //for in on obj2, if it is not in obj1, set X = Y
+    for (let i = 1; i < arguments.length; i++){
+        for (let key in arguments[i]){
+            if (!obj1.hasOwnProperty(key)){
+                obj1[key] = arguments[i][key]
+            }
+            if (!obj1.hasOwnProperty(obj2[key])){
+                obj1[key] = arguments[i][key]
+            }
+        }
+    }
+    return obj1;
+}
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
