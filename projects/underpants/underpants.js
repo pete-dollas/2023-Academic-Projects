@@ -393,7 +393,7 @@ _.pluck = function(array, property){
     return _.map(output, _.identity);//map the array and I get array0, 0, aray
 }
 
-//14
+//14 SOLVED
 /** _.every
 * Arguments:
 *   1) A collection
@@ -405,7 +405,7 @@ _.pluck = function(array, property){
 *      if <collection> is an object:
 *          current value, current key, <collection>
 *   2) If the return value of calling <function> for every element is true, return true
-*   3) If even one of them returns false, return false
+*  XX 3) If even one of them returns false, return false
 *   4) If <function> is not provided, return true if every element is truthy, otherwise return false
 * Edge Cases:
 *   1) what if <function> doesn't return a boolean
@@ -414,7 +414,34 @@ _.pluck = function(array, property){
 *   _.every([2,4,6], function(e){return e % 2 === 0}) -> true
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
-
+_.every = function(collection, func) {
+ //an array, do regular for loop
+ if (typeof collection === "object" && collection instanceof Array === true) {
+    for (let i = 0; i < collection.length; i++){
+        if (func === "" || !func){
+            if (!collection[i]){
+                return false
+            }
+        }
+        else if (func(collection[i], i, collection) === false) {
+            return false
+        }
+    }
+ }
+ else if (typeof collection === "object" && collection instanceof Array === false) {
+    for (let key in collection) {
+        if (func === "" || !func){
+            if (!collection[key]) {
+                return false
+            }
+        }
+        else if (func(collection[key], key, collection) === false) {
+            return false
+        }
+    }
+ }
+ return true;
+}
 //15
 /** _.some
 * Arguments:

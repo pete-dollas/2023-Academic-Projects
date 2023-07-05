@@ -291,11 +291,39 @@ function pluck(array, property){
     return _.map(output, _.identity);
 }
 
-//14
+//14 SOLVED
 /**
- * every
- * 
+ * every: Designed to parse each element in an array/object and return whether all values are true or false (when a function is passed) or truthy or falsy (when no function parameter is passed)
+ * @param {Array or Object} collection: a collection to be passed; can be an array or an object
+ * @param {Function} func: a function to be passed and called on each element in the object; if no function entered, return will refer to truthy or falsy
  */
+function every(collection, func) {
+    if (typeof collection === "object" && collection instanceof Array === true) {
+       for (let i = 0; i < collection.length; i++){
+           if (func === "" || !func){
+               if (!collection[i]){
+                   return false
+               }
+           }
+           else if (func(collection[i], i, collection) === false) {
+               return false
+           }
+       }
+    }
+    else if (typeof collection === "object" && collection instanceof Array === false) {
+       for (let key in collection) {
+           if (func === "" || !func){
+               if (!collection[key]) {
+                   return false
+               }
+           }
+           else if (func(collection[key], key, collection) === false) {
+               return false
+           }
+       }
+    }
+    return true;
+}
 
 //15
 /**
