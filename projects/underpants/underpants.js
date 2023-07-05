@@ -384,6 +384,15 @@ _.map = function(collection, func){
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
 
+//property will be the key; search each spot for array[???][property]
+_.pluck = function(array, property){
+    let output = [];
+    for (let obj of array){
+        output.push(obj[property])
+    }
+    return _.map(output, _.identity);//map the array and I get array0, 0, aray
+}
+
 //14
 /** _.every
 * Arguments:

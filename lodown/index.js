@@ -42,7 +42,7 @@ function identity(value){
  * @param {Array or Object} collection: The collection over which to iterate.
  * @param {Function} action: The Function to be applied to each value in the 
  * collection
- * 
+*/
 function each(collection, action) {
     if(Array.isArray(collection)) {
         for(var i = 0; i < collection.length; i++) {
@@ -55,14 +55,13 @@ function each(collection, action) {
     }
 }
 module.exports.each = each;
-*/
 
 
 //1 SOLVED
 /**
  * identity: Designed to take in a value and return it unchanged.
  * 
- * @param {value} value: any value to be returned
+ * @param {Value} value: any value to be returned
  */
 function identity(value){
     return value;
@@ -73,7 +72,7 @@ module.exports.identity = identity;
 /**
  * typeof: Designed to return the specific type of any value, including arrays and null.
  * 
- * @param {value} value: any value to be returned
+ * @param {Value} value: any value to be returned
  */
  function typeOf (value) {
     if (typeof value  === "string") {return "string"}
@@ -91,8 +90,8 @@ module.exports.identity = identity;
  /**
   * first: Designed to return the first n items in an array, else just the first element or empty array if invalid arguments are passed.
   * 
-  * @param {array} array: an array to be passed; if no array is passed it will return []
-  * @param {num} number: a positive number to be passed
+  * @param {Array} array: an array to be passed; if no array is passed it will return []
+  * @param {Number} number: a positive number to be passed
   */
  function first (array, num) {
     let output = [];
@@ -112,8 +111,8 @@ module.exports.identity = identity;
 /**
  * last: Designed to return the last n items in an array, else just the last element or empty array if invalid arguments are passed.
  * 
- * @param {array} array: an array to be passed; if no array is passed it will return []
- * @param {num} number: a positive number to be passed
+ * @param {Array} array: an array to be passed; if no array is passed it will return []
+ * @param {Number} number: a positive number to be passed
  */
 function last(array, number) {
     if (typeof array === "object" && array instanceof Array !== true) {
@@ -139,8 +138,8 @@ module.exports.last = last;
 /**
  * indexOf: Designed to return the index of <array> that is the first occurrance of <value>, else -1 if not found
  * 
- * @param {array} array: an array to be passed
- * @param {value} value: any value to be passed
+ * @param {Array} array: an array to be passed
+ * @param {Value} value: any value to be passed
  */
 function indexOf(array, value){
     for (let i = 0; i < array.length; i++){
@@ -154,8 +153,8 @@ module.exports.indexOf = indexOf;
 /**
  * contains: Designed to return true if <array> contains <value>
  * 
- * @param {array} array: an array to be passed
- * @param {value} value: any value to be passed
+ * @param {Array} array: an array to be passed
+ * @param {Value} value: any value to be passed
  */
 function contains(array, value){
     for (let i = 0; i < array.length; i++){
@@ -169,8 +168,8 @@ module.exports.contains = contains;
 /**
  * each: Designed to call a function once for each element if using an array, or property if using an object.
  * 
- * @param {collection} collection: a collection to be passed; can be an array or an object
- * @param {funct} function: a function to be passed
+ * @param {Array or Object} collection: a collection to be passed; can be an array or an object
+ * @param {Function} func: a function to be passed and called on each element of an array
  */
 function each(collection, func){
     if (collection instanceof Array === true) {
@@ -189,7 +188,7 @@ module.exports.each = each
 //8 SOLVED
 /**
  * unique: Designed to return a new array of all elements from input array with duplicates removed
- * * @param {array} array: an array to be passed
+ * * @param {Array} array: an array to be passed
  */
 function each(array){
     let output = [];
@@ -205,8 +204,8 @@ module.exports.unique = unique;
 //9 SOLVED
 /**
  * filter: Designed to apply a function to an array and return all true values
- * @param {array} array: an array to be passed
- * @param {funct} function: a function to be passed
+ * @param {Array} array: an array to be passed
+ * @param {Function} func: a function to be passed and called on each element of an array
  */
 function filter(array, func){
     let output = [];
@@ -222,8 +221,8 @@ module.exports.filter = filter
 //10 SOLVED
 /**
  * reject: Designed to apply a function to an array and return all false values
- * @param {array} array: an array to be passed
- * @param {funct} function: a function to be passed
+ * @param {Array} array: an array to be passed
+ * @param {Function} func: a function to be passed and called on each element of an array
  */
 function reject(array, func){
     let output = [];
@@ -239,8 +238,8 @@ module.exports.reject = reject
 //11 SOLVED
 /**
  * partition: Designed to call a function on an array and return truthy values and falsy values
- * @param {array} array: an array to be passed
- * @param {funct} function: a function to be passed
+ * @param {Array} array: an array to be passed
+ * @param {Function} func: a function to be passed and called on each element of an array
  */
 function partition(array, func){
     let output = [[], []];
@@ -259,8 +258,8 @@ module.exports.partition = partition
 //12 SOLVED
 /**
  * map: Designed to call a function on each element in an array or object and return the values
- * @param {collection} collection: a collection to be passed; can be an array or an object
- * @param {funct} function: a function to be passed
+ * @param {Array or Object} collection: a collection to be passed; can be an array or an object
+ * @param {Function} func: a function to be passed and called on each element in the object
  */
 function map(collection, func){
     let output = [];
@@ -278,10 +277,19 @@ function map(collection, func){
 }
 module.exports.map = map
 
-//13
+//13 SOLVED
 /**
- * pluck
+ * pluck: Designed to parse an <array> of nested objects and return an array of all values associated with a key of <property>
+ * @param {Array} array: an array of nested objects to be passed
+ * @param {Value} property: a key value be passed in as a string
  */
+function pluck(array, property){
+    let output = [];
+    for (let obj of array){
+        output.push(obj[property])
+    }
+    return _.map(output, _.identity);
+}
 
 //14
 /**
