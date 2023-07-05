@@ -39,7 +39,7 @@ function identity(value){
  * each: Designed to loop over a collection, Array or Object, and applies the 
  * action Function to each value in the collection.
  * 
- * @param {Array or Object} collection: The collection over which to iterate.
+ * @param {Array|Object} collection: The collection over which to iterate.
  * @param {Function} action: The Function to be applied to each value in the 
  * collection
 */
@@ -61,7 +61,7 @@ module.exports.each = each;
 /**
  * identity: Designed to take in a value and return it unchanged.
  * 
- * @param {Value} value: any value to be returned
+ * @param {value} value: any value to be returned
  */
 function identity(value){
     return value;
@@ -72,7 +72,7 @@ module.exports.identity = identity;
 /**
  * typeof: Designed to return the specific type of any value, including arrays and null.
  * 
- * @param {Value} value: any value to be returned
+ * @param {value} value: any value to be returned
  */
  function typeOf (value) {
     if (typeof value  === "string") {return "string"}
@@ -91,7 +91,7 @@ module.exports.identity = identity;
   * first: Designed to return the first n items in an array, else just the first element or empty array if invalid arguments are passed.
   * 
   * @param {Array} array: an array to be passed; if no array is passed it will return []
-  * @param {Number} number: a positive number to be passed
+  * @param {number} number: a positive number to be passed
   */
  function first (array, num) {
     let output = [];
@@ -168,7 +168,7 @@ module.exports.contains = contains;
 /**
  * each: Designed to call a function once for each element if using an array, or property if using an object.
  * 
- * @param {Array or Object} collection: a collection to be passed; can be an array or an object
+ * @param {Array|Object} collection: a collection to be passed; can be an array or an object
  * @param {Function} func: a function to be passed and called on each element of an array
  */
 function each(collection, func){
@@ -258,7 +258,7 @@ module.exports.partition = partition
 //12 SOLVED
 /**
  * map: Designed to call a function on each element in an array or object and return the values
- * @param {Array or Object} collection: a collection to be passed; can be an array or an object
+ * @param {Array|Object} collection: a collection to be passed; can be an array or an object
  * @param {Function} func: a function to be passed and called on each element in the object
  */
 function map(collection, func){
@@ -294,7 +294,7 @@ function pluck(array, property){
 //14 SOLVED
 /**
  * every: Designed to parse each element in an array/object and return whether all values are true or false (when a function is passed) or truthy or falsy (when no function parameter is passed)
- * @param {Array or Object} collection: a collection to be passed; can be an array or an object
+ * @param {Array|Object} collection: a collection to be passed; can be an array or an object
  * @param {Function} func: a function to be passed and called on each element in the object; if no function entered, return will refer to truthy or falsy
  */
 function every(collection, func) {
@@ -324,12 +324,48 @@ function every(collection, func) {
     }
     return true;
 }
+module.exports.every = every
 
 //15
 /**
- * some
- * 
+ * some: Designed to determine if at least one element in a collection satisfies a given condition.
+ * @param {Array|Object} collection: a collection to be passed; can be an array or an object
+ * @param {Function} func: a function to be passed and called on each element in the object; if no function entered, return will refer to truthy or falsy
  */
+function some(collection, func) { 
+    if (collection instanceof Array) { // for arrays
+      if (func === undefined) {
+        for (let h = 0; h < collection.length; h++) {
+          if (collection[h] == true) {
+            return true;
+          }
+        }
+      } else {
+        for (let i = 0; i < collection.length; i++) {
+          if (func(collection[i], i, collection) === true) {
+            return true;
+          }
+        }
+      }
+    }
+    else if (typeof collection === "object") { // for objects
+      if (func === undefined) {
+        for (let key in collection) {
+          if (collection[key] == true) {
+            return true;
+          }
+        }
+      } else {
+        for (let key in collection) {
+          if (func(collection[key], key, collection) === true) {
+            return true;
+          }
+        }
+      }
+    }  
+    return false;
+  };
+module.exports.some = some
 
 //16
 /**
@@ -340,6 +376,6 @@ function every(collection, func) {
 //17
 /**
  * extend: 
- * @param {obj1} obj1: an object to be passed
- * @param {obj2} obj2: an additional object to be passed
+ * @param {Object} obj1: an object to be passed
+ * @param {Object} obj2: an additional object to be passed
  */
