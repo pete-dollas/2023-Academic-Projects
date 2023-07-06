@@ -3,10 +3,10 @@
 'use strict';
 
 var customers = require('./data/customers.json');
-var _ = require(/* Replace this with the name of your lodown! */);
+var _ = require('underbar');
 
 /**
- * 1. Import your lodown module using the require() method,
+ * 1. IGNORE THIS- Import your lodown module using the require() method,
  *    using the string 'lodown-<my-username>', or whatever
  *    name with which you published your npm lodown project.
  *
@@ -14,11 +14,22 @@ var _ = require(/* Replace this with the name of your lodown! */);
  *
  * 3. We started the first one for you as an example! Make the rest in that style.
  *
- * 4. To test your work, run the following command in your terminal:
+ * 4. TO TEST:
+ * 
+ *    run the following command in your terminal:
+ * make sure terminal says 
+ *>> gitpod /workspace $
+ *  
+ * if it doesnt, repeat>> cd ..
+ * until it does.
+ *    
+ *then enter>>
+ *    npm start --prefix ./pete-dollas.github.io/projects/let-s-get-functional
  *
- *    npm start --prefix ./<YOUR_GITHUB_FOLDER/projects/let-s-get-functional
- *
- *    IMPORTANT: Make sure you replace <YOUR_GITHUB_FOLDER with your actual github folder name that is in your workspace.
+ * 
+ * when ready to commit, get back to github
+ * 
+ * do >> cd pete-dollas.github.io
  */
 
 var maleCount = function(array) {
