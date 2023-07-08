@@ -115,8 +115,19 @@ var firstLetterCount = function(array, letter){
       }
     }//end of entire function
 
-//8
-var friendsCount;
+//8 SOLVED
+var friendsCount = function (array, name) {
+  let output = [];
+  for (let i = 0; i < array.length; i++){
+      const reduceFriends = array[i].friends.reduce(function(total, array){
+        if (array.name === name) {
+          output.push(customers[i].name)
+        }
+        return array;
+      }, 0)
+  } //end of main for loop for customer names
+  return output;
+}//end of friendsCount
 
 //9
 var topThreeTags;
