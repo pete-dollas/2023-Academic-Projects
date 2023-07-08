@@ -100,24 +100,20 @@ var firstLetterCount = function(array, letter){
   return fil;
   }
 
-//7
-var friendFirstLetterCount = function (array, customer, letter){
-
-    var index = array.findIndex(function(person) {
-        return person.name == customer
-      });//got the index of customer. use it to loop her friends array
-      
-    let newArr = [];
-    newArr.push(array[index].friends)//make a new temporary array of the friends list so it is easier to work with
-        
-    const fil = newArr[0].reduce(function(total, array){//0 because the friends list is a sub-array within the friend array
-        
-    if (array.name.charAt(0).toLowerCase() === letter.toLowerCase()) {
-        total++}
-        return total;
-    }, 0)
-    return fil;
-}
+//7 SOLVED
+  var friendFirstLetterCount = function (array, customer, letter){
+    for (let i = 0; i < array.length; i++){
+      if (array[i].name === customer){
+        const fil = array[i].friends.reduce(function(total, array){
+          if (array.name.charAt(0).toLowerCase() === letter.toLowerCase()) {
+            total++
+          }
+          return total;
+        }, 0)
+      return fil;   
+        }//end of reduce
+      }
+    }//end of entire function
 
 //8
 var friendsCount;
