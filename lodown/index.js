@@ -205,7 +205,7 @@ module.exports.unique = unique;
 
 //9 SOLVED
 /**
- * filter: Designed to apply a function to an array and return all true values
+ * filter: Designed to apply a function to an array and return all true values as an array
  * @param {Array} array: an array to be passed
  * @param {Function} func: a function to be passed and called on each element of an array
  */

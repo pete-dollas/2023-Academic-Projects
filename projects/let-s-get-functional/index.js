@@ -30,21 +30,70 @@ var _ = require('underbar');
  * when ready to commit, get back to github
  * 
  * do >> cd pete-dollas.github.io
+ * 
+ * 
+ * use readme for instructions
+ * use data=>customers to see the data being manipulated
  */
 
+ //#1 modeled for us; it started as 
+ /**
 var maleCount = function(array) {
 
 };
+*/
 
-var femaleCount;
+var maleCount = function(array) {
+    let males = _.filter(array, function(customer) {
+        return customer.gender === "male"
+    })
+    return males.length
+};
 
-var oldestCustomer;
+var femaleCount = function(array) {
+    let females = array.reduce(function(total, array){
+        if (array.gender === "female"){
+            total++
+        }
+        return total;
+    }, 0)
+    return females;
+};
 
-var youngestCustomer;
+var oldestCustomer = function(array){
 
-var averageBalance;
+const oldest = array.reduce(function (accum, current){
+    if (accum.age > current.age) {   
+        return accum
+      }
+      else {
+        return current
+      }
+    
+     })
+    return oldest.name;
+}
 
-var firstLetterCount;
+var youngestCustomer = function(array){// = _.reduce(array, function(accumulator, current){
+
+    const youngest = array.reduce(function(accum, current){
+        if (accum.age < current.age) {return accum}
+        else if (accum.age > current.age) {return current}
+    })
+    return youngest.name;
+}
+
+var averageBalance;//skip this until we discuss this on Monday 
+
+var firstLetterCount = function(array, letter){
+    
+  const fil = array.reduce(function(total, array){
+  
+    if (array.name.charAt(0).toLowerCase() === letter.toLowerCase()) {total++}
+    return total;
+  }, 0)
+  return fil;
+  }
 
 var friendFirstLetterCount;
 
