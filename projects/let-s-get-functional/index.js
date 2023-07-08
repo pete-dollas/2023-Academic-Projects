@@ -86,7 +86,20 @@ var youngestCustomer = function(array){// = _.reduce(array, function(accumulator
 }
 
 //5
-var averageBalance;//skip this until we discuss this on Monday 
+var averageBalance = function(array){
+  let output = []//must output a number
+  let noCustomers = array.length//find number of customers
+
+    for (let i = 0; i < array.length; i++){
+      let cash = array[i].balance.replace("$", "")//need to splice or replace $ and comma
+      let both = cash.replace(",", "")
+      output.push(both*1)//push that
+    }
+    
+    let sum = output.reduce((a, b) => a + b, 0);
+   return Number((sum/= noCustomers))
+  //return output; //a number representing the average balance of all customers
+  } 
 
 
 //6 SOLVED
@@ -130,11 +143,54 @@ var friendsCount = function (array, name) {
 }//end of friendsCount
 
 //9
-var topThreeTags;
 
+var topThreeTags = function(array){
+  //1 use reduce to collect all tag names without repeats
+  //2 store all unique tags in an object and set the value to 1
+  //3 use the object as the base comparison to reiterate customers and tally the counts for each tag
+  //4 sort the code values in the object
+  //5 return the 3 highest in an array
+let tagCollector = {};//temporary holding obj for incoming tag keys and values
+
+  //Steps 1-3: iterate all tags one at a time; if they dont exist, create key/value = 1, else add 1
+ const tagReduce = array.reduce((accum, nextObj) => {//use reduce to go through each object and collect all known tags
+    for (let i = 0; i < nextObj.tags.length; i++) {//for loop will go through each tags per object
+     if(tagCollector[nextObj.tags[i]]) {tagCollector[nextObj.tags[i]]++}
+      else {tagCollector[nextObj.tags[i]] = 1}
+      }
+      return accum;//return accum at the end of the cycle(or else it will show the last object instead)
+    })
+let highScores = [];
+  for (let key in tagCollector){
+  highScores.push(tagCollector[key])
+}
+  const numSort = highScores.sort((a, b) => b - a)
+  let h1 = numSort[0]
+  let h2 = numSort[1]
+  let h3 = numSort[2]
+
+  let output = [];
+  for (let key in tagCollector){
+  if ( tagCollector[key] === h1 || tagCollector[key] === h2 || tagCollector[key] === h3){
+    output.push(key)
+                }
+}
+  return output;
+}
 
 //10
-var genderCount;
+var genderCount = function(array){
+  let output = {
+    male: 0,
+    female: 0,
+    "non-binary": 0
+  };//must create an object of summaries
+  //keys gender = male, female, non-binary
+  const genderTally = array.reduce((accum, next) =>
+      output[next.gender] ++, 0);
+  return output;//must be an object of summaries
+}
+console.log(genderCount(customers))
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
