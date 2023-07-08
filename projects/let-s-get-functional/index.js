@@ -42,7 +42,7 @@ var maleCount = function(array) {
 
 };
 */
-
+//1 SOLVED
 var maleCount = function(array) {
     let males = _.filter(array, function(customer) {
         return customer.gender === "male"
@@ -50,6 +50,7 @@ var maleCount = function(array) {
     return males.length
 };
 
+//2 SOLVED
 var femaleCount = function(array) {
     let females = array.reduce(function(total, array){
         if (array.gender === "female"){
@@ -60,6 +61,7 @@ var femaleCount = function(array) {
     return females;
 };
 
+//3 SOLVED
 var oldestCustomer = function(array){
 
 const oldest = array.reduce(function (accum, current){
@@ -69,11 +71,11 @@ const oldest = array.reduce(function (accum, current){
       else {
         return current
       }
-    
      })
     return oldest.name;
 }
 
+//4 SOLVED
 var youngestCustomer = function(array){// = _.reduce(array, function(accumulator, current){
 
     const youngest = array.reduce(function(accum, current){
@@ -83,8 +85,11 @@ var youngestCustomer = function(array){// = _.reduce(array, function(accumulator
     return youngest.name;
 }
 
+//5
 var averageBalance;//skip this until we discuss this on Monday 
 
+
+//6 SOLVED
 var firstLetterCount = function(array, letter){
     
   const fil = array.reduce(function(total, array){
@@ -95,12 +100,33 @@ var firstLetterCount = function(array, letter){
   return fil;
   }
 
-var friendFirstLetterCount;
+//7
+var friendFirstLetterCount = function (array, customer, letter){
 
+    var index = array.findIndex(function(person) {
+        return person.name == customer
+      });//got the index of customer. use it to loop her friends array
+      
+    let newArr = [];
+    newArr.push(array[index].friends)//make a new temporary array of the friends list so it is easier to work with
+        
+    const fil = newArr[0].reduce(function(total, array){//0 because the friends list is a sub-array within the friend array
+        
+    if (array.name.charAt(0).toLowerCase() === letter.toLowerCase()) {
+        total++}
+        return total;
+    }, 0)
+    return fil;
+}
+
+//8
 var friendsCount;
 
+//9
 var topThreeTags;
 
+
+//10
 var genderCount;
 
 //////////////////////////////////////////////////////////////////////
