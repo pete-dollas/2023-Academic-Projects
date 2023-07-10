@@ -43,28 +43,24 @@ const meetings = [
 Directions: Create a function called getMeetingBySpecs. This function will take three parameters - array, agenda, date. Array will be an array of meeting objects; agenda will be a string representing an agenda heading for a meeting; date will be a string representing the month, day, and year the meeting is scheduled. This function should search through the input array and find the meeting matching the input agenda and input date. "
 */
 
-function getMeetingBySpecs(array, agenda, date) {
-  //Array will be an array of meeting objects; 
-  //agenda will be a string representing an agenda heading for a meeting; 
-  //date will be a string representing the month, day, and year the meeting is scheduled.
-
-  //This function should search through the input array and find the meeting matching the input agenda and input date. "
-
- for (let i = 0; i <= array.length - 1; i++) {
-    let counter = 0//starts at 0 and will count number of failed validations
-    if (array[i]["agenda"] === agenda && array[i]["date"] === date) {return array[i]}
-  else {counter++}//each loop that fails a validation adds 1 to the counter
-  if (counter === array.length)  {//if counter == array length it means every loop failed to make a match
-    return "no meeting found matching those specifications."}
-}//for loop close
-};//function close
-console.log(getMeetingBySpecs(meetings, "Exterior Repairs", "March 10, 2022"))
+function getMeetingBySpecs(array, agenda, date){ 
+  let answer = array.filter(function(item){
+    if (item["agenda"] === agenda && item["date"] === date) {return item}
+  })
+    if (answer) {return answer}
+    else {return "No"}
+  }
 /////////////////////// PROBLEM #2 //////////////////////////
 /*
 Directions: The CEO of SchedHead wants to apply a one-time gift to every other meeting scheduled in the SchedHead database. The CEO wants to remove the last meeting attendee from every other meeting scheduled and give them that meeting time off. Create the function called removeMeetingAttendees that takes in one parameter - array. Array represents an array of meeting objects. This function should iterate through the input array and access EVERY OTHER MEETING and remove the last meeting participant from the participants array of each meeting object.
 */
 
-var removeMeetingAttendees;
+var removeMeetingAttendees = function(array){
+  array.map(function(meeting){
+   meeting["participants"].pop()
+  })
+  return meetings;
+};
 
 /////////////////////// PROBLEM #3 //////////////////////////
 /*
@@ -73,8 +69,8 @@ Directions: Create a function called printMeetingInfo that takes in one paramete
 - example: printMeetingInfo(meetings[0]); LOGS => "The Maryland Trip meeting will be taking place February 25, 2022 at 10:00AM."
 */
 
-var printMeetingInfo = function() {
-  
+var printMeetingInfo = function(meeting) {//input an object
+  return `The ${meeting.agenda} will be taking place ${meeting.date} at ${meeting.meetingTime}.`
 };
 
 /////////////////////// PROBLEM #4 //////////////////////////
@@ -83,7 +79,12 @@ Directions: Create a function called getMeetingHead that takes in three paramete
 - example: getMeetingHead(meetings, "February 25, 2022", "10:00AM") => "Kyle"
 */
 
-var getMeetingHead;
+var getMeetingHead = function(array, date, time){
+  let answer = array.filter(function(meeting){
+    if (meeting["date"] === date && meeting.meetingTime === time){return meeting}
+  })
+  return answer[0].participants[0]//.slice(0,1)
+}
 
 /////////////////////// PROBLEM #5 //////////////////////////
 /*
@@ -92,7 +93,13 @@ Directions: Create a function called isParticipant that takes in 5 parameters - 
 - example: isParticipant(meetings, "Maryland, Trip", "February 25, 2022", "10:00AM", "Vickie") => false
 */
 
-var isParticipant;
+var isParticipant = function(array, agenda, date, time, participant){
+  let check = array.filter(function(meeting){
+    if (meeting["agenda"] === agenda && meeting["date"] === date && meeting.meetingTime === time) {return meeting}
+  })
+   if(check[0].participants.includes(participant)) {return true}
+  else {return false}
+};
 
 // DO NOT REMOVE CODE BELOW //////////////////////////////////
 
