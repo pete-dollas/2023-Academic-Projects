@@ -29,7 +29,7 @@ var _ = require('underbar');
  * 
  * when ready to commit, get back to github
  * 
- * do >> cd pete-dollas.github.io
+ * do >> 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
  * 
  * 
  * use readme for instructions

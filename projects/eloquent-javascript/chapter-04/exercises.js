@@ -113,19 +113,28 @@ let list = {
   };
 */
 
+function arrayToList([a, b, c]){
+  let list = {
+    value: a,
+    rest: {
+      value: b, 
+      rest: { 
+        value: c, 
+        rest: null 
+      } 
+    }
+  };
+  return list;
+  }
+
+console.log(arraytoList(1, 2, 3))
+////////////////////////////////////////////////////////////////////////////////
+// listToArray /////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 //Also write a listToArray function that produces an array from a list. 
 //Then add a helper function prepend, which takes an element and a list and creates a new list that adds the element to the front of the input list, 
 //and nth, which takes a list and a number and returns the element at the given position in the list (with zero referring to the first element) or undefined when there is no such element.
 //If you haven’t already, also write a recursive version of nth.”
-
-
-function arrayToList() {
-
-}
-
-////////////////////////////////////////////////////////////////////////////////
-// listToArray /////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
 
 function listToArray() {
 
