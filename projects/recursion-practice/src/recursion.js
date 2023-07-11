@@ -171,28 +171,41 @@ return compareStr(str1.slice(1), str2.slice(1))
 
 // 16. Write a function that accepts a string and creates an array where each letter
 // occupies an index of the array.
-var createArray = function(str){
+var createArray = function(str, arr=[]){
+  if (str.length === 0){return arr};
+  arr.push(str[0])
+  return createArray(str.slice(1), arr)
 };
 
 // 17. Reverse the order of an array
-var reverseArr = function (array) {
+var reverseArr = function (array, rev=[]) {
+  if (array.length === 0) {return rev}
+  rev.unshift(array[0])
+  return reverseArr(array.slice(1), rev)
 };
 
 // 18. Create a new array with a given value and length.
 // buildList(0,5) // [0,0,0,0,0]
 // buildList(7,3) // [7,7,7]
-var buildList = function(value, length) {
+var buildList = function(value, length, arr=[]) {
+  if (length === 0){return arr}
+  arr.push(value);
+  return buildList(value, length - 1, arr)
 };
 
 // 19. Count the occurence of a value inside a list.
 // countOccurrence([2,7,4,4,1,4], 4) // 3
 // countOccurrence([2,'banana',4,4,1,'banana'], 'banana') // 2
-var countOccurrence = function(array, value) {
+var countOccurrence = function(array, value, num=0) {
+  if (array.length ===0){return num}
+  if (array[0] === value){num++}
+  return countOccurrence(array.slice(1), value, num)
 };
 
 // 20. Write a recursive version of map.
 // rMap([1,2,3], timesTwo); // [2,4,6]
 var rMap = function(array, callback) {
+  
 };
 
 // 21. Write a function that counts the number of times a key occurs in an object.
