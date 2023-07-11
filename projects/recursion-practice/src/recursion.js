@@ -205,7 +205,7 @@ var countOccurrence = function(array, value, num=0) {
 // 20. Write a recursive version of map.
 // rMap([1,2,3], timesTwo); // [2,4,6]
 var rMap = function(array, callback) {
-  
+
 };
 
 // 21. Write a function that counts the number of times a key occurs in an object.
@@ -306,8 +306,22 @@ var alternateSign = function(array) {
 // 35. Given a string, return a string with digits converted to their word equivalent.
 // Assume all numbers are single digits (less than 10).
 // numToText("I have 5 dogs and 6 ponies"); // "I have five dogs and six ponies"
-var numToText = function(str) {
+
+var numToText = function(str, newStr="") {
+  const words = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
+  const nums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+  if (str.length === 0) {return newStr}
+  if (str[0] === " ") {
+    newStr += " ";}
+  else if (nums.includes(Number(str[0])) && Number(str[0]) > 0) {
+    newStr+= words[Number(str[0])]
+  }
+  
+  else {newStr += str[0]}
+  return numToText(str.slice(1), newStr)
 };
+
 
 // *** EXTRA CREDIT ***
 
