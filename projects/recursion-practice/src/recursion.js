@@ -264,12 +264,18 @@ var nthFibo = function(n, arr=[], counter=0) {
 // 26. Given an array of words, return a new array containing each word capitalized.
 // var words = ['i', 'am', 'learning', 'recursion'];
 // capitalizedWords(words); // ['I', 'AM', 'LEARNING', 'RECURSION']
-var capitalizeWords = function(input) {
+var capitalizeWords = function(input, arr=[]) {
+if (input.length === 0){return arr}
+arr.push(input[0].toUpperCase())
+return capitalizeWords(input.slice(1), arr)
 };
 
 // 27. Given an array of strings, capitalize the first letter of each index.
 // capitalizeFirst(['car', 'poop', 'banana']); // ['Car', 'Poop', 'Banana']
-var capitalizeFirst = function(array) {
+var capitalizeFirst = function(array, arr=[]) {
+  if (array.length === 0){return arr}
+arr.push(`${array[0].slice(0, 1).toUpperCase()}${array[0].slice(1)}`)
+return capitalizeFirst(array.slice(1), arr)
 };
 
 // 28. Return the sum of all even numbers in an object containing nested objects.
@@ -291,15 +297,22 @@ var flatten = function(arrays) {
 
 // 30. Given a string, return an object containing tallies of each letter.
 // letterTally('potato'); // {'p':1, 'o':2, 't':2, 'a':1}
-var letterTally = function(str, obj) {
-};
+var letterTally = function(str, obj={}, tally=0) {
+  if (str.length === tally){return obj}
+  if (obj[str[tally]]) {obj[str[tally]]++}
+  else {obj[str[tally]] = 1}
+  return letterTally(str, obj, tally + 1)
+}
 
 // 31. Eliminate consecutive duplicates in a list.  If the list contains repeated
 // elements they should be replaced with a single copy of the element. The order of the
 // elements should not be changed.
 // Example: compress([1, 2, 2, 3, 4, 4, 5, 5, 5]) // [1, 2, 3, 4, 5]
 // Example: compress([1, 2, 2, 3, 4, 4, 2, 5, 5, 5, 4, 4]) // [1, 2, 3, 4, 2, 5, 4]
-var compress = function(list) {
+var compress = function(list, arr=[]) {
+if (list.length === 0){return arr}
+if (list[0] !== arr[arr.length - 1]) {arr.push(list[0])}
+return compress(list.slice(1), arr)
 };
 
 // 32. Augment every element in a list with a new value where each element is an array
