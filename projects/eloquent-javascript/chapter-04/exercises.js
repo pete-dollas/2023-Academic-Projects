@@ -113,21 +113,22 @@ let list = {
   };
 */
 
-function arrayToList([a, b, c]){
-  let list = {
-    value: a,
-    rest: {
-      value: b, 
-      rest: { 
-        value: c, 
-        rest: null 
-      } 
-    }
-  };
-  return list;
-  }
+//list is just an object that is a series of nodes
+//rest property is a nest
 
-console.log(arraytoList(1, 2, 3))
+//series of nested objectes that end in a null property
+
+
+//new attempt using arg property OR do I want to destructure?
+function arrayToList(array){
+let rest = null;
+for (let i = array.length - 1; i >= 0; i--){
+rest = {value: array[i], rest: rest}
+}
+  return rest;
+  }
+console.log(arraytoList([1, 2, 3]))
+
 ////////////////////////////////////////////////////////////////////////////////
 // listToArray /////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
