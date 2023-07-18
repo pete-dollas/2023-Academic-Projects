@@ -2,11 +2,15 @@
 // flatten /////////////////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
 //“Flattening
-//Use the reduce method in combination with the concat method to “flatten” an array of arrays into a single array 
+//Use the reduce method in combination with the concat method to “flatten” an 
+//array of arrays into a single array 
 //that has all the elements of the original arrays.”
 
 function flatten(array) {
-
+let flat = array.reduce(function(current, next) {
+return current.concat(next);
+})
+return flat;
 }
 
 // /////////////////////////////////////////////////////////////////////////////
@@ -20,10 +24,14 @@ function flatten(array) {
 //When defining the function, you can use a regular loop to do the actual looping.”
 
 
-function loop() {
-
+function loop(value, test, update, body) {
+  for (let i = 0; i < value.length; i++){
+  if (test(value[i]) !== false) {
+    let bod = body(value[i]);
+    update(bod);
 }
-
+  }
+}
 // /////////////////////////////////////////////////////////////////////////////
 // every ///////////////////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////

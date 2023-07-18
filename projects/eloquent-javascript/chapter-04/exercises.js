@@ -119,7 +119,10 @@ let list = {
 //series of nested objectes that end in a null property
 
 
-//new attempt using arg property OR do I want to destructure?
+//After the initial attempt failed I was speculating that my
+//new attempt would involve loops using arguments property, or destructuring, or both
+
+//Alex ended up giving us this solution:
 function arrayToList(array){
 let rest = null;
 for (let i = array.length - 1; i >= 0; i--){
@@ -133,29 +136,63 @@ console.log(arraytoList([1, 2, 3]))
 // listToArray /////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 //Also write a listToArray function that produces an array from a list. 
-//Then add a helper function prepend, which takes an element and a list and creates a new list that adds the element to the front of the input list, 
-//and nth, which takes a list and a number and returns the element at the given position in the list (with zero referring to the first element) or undefined when there is no such element.
-//If you haven’t already, also write a recursive version of nth.”
 
-function listToArray(list) {
+//obsolete starter function// function listToArray(list) {}
+//take in the object and make an array
+//this may help me with greenlight problem
+//alex says recursion is the only practical way to do this one; a for loop would be too cumbersom
+function listToArray(list, output = []) {
+//base
+  if (list.rest === null){
+    output.push(list.value);
+    return output
+}
+//recursion
+output.push(list.value)
 
+return listToArray(list.rest, output)
 }
 
+//alex says spend 20 minutes looking at this for a preview but he will demo it for us; he will check in with us on Monday for these
 ////////////////////////////////////////////////////////////////////////////////
 // prepend /////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
+//
+//“ takes an element and an object list and creates a new object list that 
+//adds the element to the front of the input list”
+//list is an object;
+//rest is null at the end of the object's nesting
 
-function prepend(element) {
-
+function prepend(value, list) {
+  return {value, rest: list};
 }
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // nth /////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
-
-function nth(list, number) {
-
+//nth, which takes a list and a number and returns the element at the given position
+// in the list (with zero referring to the first element) or undefined when there is no such element.
+//If you haven’t already, also write a recursive version of nth.”
+//alex says spend 20 minutes looking at this for a preview but he will demo it for us
+function nth(list, index) {//remember it is all nested objects, so index is really not a valid way to think of it
+if (index < 0) {return undefined}
+  else if (index === 0){
+  return list.value
 }
+return nth(list.rest, index - 1)
+}
+  //EXAMPLE OUTPUT
+  //valie 10 //0
+ // rest {
+   // value 20//1
+    //rest{
+     // value 30//2
+     // rest null
+    //}
+  //}nth(list, 2)==>30
+
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // deepEqual ///////////////////////////////////////////////////////////////////
@@ -168,8 +205,11 @@ function nth(list, number) {
 //The Object.keys function will be useful when you need to go over the properties of objects to compare them.”
 
 function deepEqual(val1, val2) {
+if (JSON.stringify(val1) === JSON.stringify(val2)) {return true}
+ 
+  else {return false}
 
-}
+}//close functiob
 
 ////////////////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
