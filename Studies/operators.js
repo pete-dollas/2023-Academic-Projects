@@ -97,15 +97,47 @@
  * These operators work as they do in most other programming languages when used with floating point numbers (in particular, note that division by zero produces Infinity). 
 
  *  BASIC ARTIHMETIC OPERATORS
- *  +	Addition	 
+ *  +	Addition	
+ * const num1 = 10;
+const num2 = 5;
+const result = num1 + num2;
+console.log("Addition:", result); // Output: 15
+
  *  -	Subtraction	 
+const num1 = 10;
+const num2 = 5;
+const result = num1 - num2;
+console.log("Subtraction:", result); // Output: 5
+
  *  *	Multiplication	 
+const num1 = 10;
+const num2 = 5;
+const result = num1 * num2;
+console.log("Multiplication:", result); // Output: 50
+
  *  /	Division	
+const num1 = 10;
+const num2 = 5;
+const result = num1 / num2;
+console.log("Division:", result); // Output: 2
+
+Remainder (Modulo) (%)
+const num1 = 10;
+const num2 = 3;
+const result = num1 % num2;
+console.log("Remainder:", result); // Output: 1
  * 
  *  NOTEWORTHY OPERATORS
  *  ++	Increment	up by 1 - this is a unary operator
+ * let num = 5;
+num++;
+console.log("Increment:", num); // Output: 6
+
  *  --	Decrement	down by 1 - this is a unary operator
- * 
+let num = 5;
+num--;
+console.log("Decrement:", num); // Output: 4
+
  *  +=	Add this much	 
  *  -=	Subtract this much	x+=3 is add 3 to x, or 4+=5 is 9
  *  *=	Multiply by this much	 
