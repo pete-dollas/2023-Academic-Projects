@@ -92,4 +92,48 @@ CONTRAST:
 Primitive data types include number, string, boolean, undefined, null, and NaN.
 Complex data types include object and array.
 Primitive data types are passed by copy to functions, while complex data types are passed by reference.
- */
+ 
+Code examples of copy by value/copy by reference:
+
+Copy by Value:
+When you copy a primitive data type (e.g., numbers, strings, booleans) from one variable to another, you create an independent copy of the value. Changes to the copied value won't affect the original variable.
+
+// Copy by value (for primitive data types)
+
+// Example with numbers (primitive)
+let num1 = 10;
+let num2 = num1; // Copying the value of num1 to num2
+
+num2 = 20; // Changing the value of num2 won't affect num1
+
+console.log("num1:", num1); // Output: 10
+console.log("num2:", num2); // Output: 20
+
+
+Copy by Reference:
+When you copy a non-primitive data type (e.g., arrays, objects) from one variable to another, you create a reference to the same data in memory. Changes made to the copied variable will also affect the original variable, as they both point to the same memory location.
+
+// Copy by reference (for non-primitive data types)
+
+// Example with arrays (non-primitive)
+const array1 = [1, 2, 3];
+const array2 = array1; // Copying the reference to array1
+
+array2.push(4); // Modifying array2 will also affect array1
+
+console.log("array1:", array1); // Output: [1, 2, 3, 4]
+console.log("array2:", array2); // Output: [1, 2, 3, 4]
+
+
+// Example with objects (non-primitive)
+const obj1 = { name: "John", age: 30 };
+const obj2 = obj1; // Copying the reference to obj1
+
+obj2.age = 35; // Modifying obj2 will also affect obj1
+
+console.log("obj1:", obj1); // Output: { name: 'John', age: 35 }
+console.log("obj2:", obj2); // Output: { name: 'John', age: 35 }
+In both examples of copy by reference, the original variables (array1 and obj1) and the copied variables (array2 and obj2) are referring to the same data in memory. As a result, changes to one variable are reflected in the other.
+
+To create a truly independent copy of non-primitive data types (e.g., arrays, objects), you need to perform a deep copy. There are various methods for deep copying, such as using libraries like Lodash, spread syntax, or JSON.parse() and JSON.stringify().
+*/
