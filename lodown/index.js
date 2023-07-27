@@ -61,9 +61,10 @@ module.exports.each = each;
 
 //1 SOLVED
 /**
- * identity: Designed to take in a value and return it unchanged.
+ * identity: Designed to take any value as an argument and return that value unchanged. 
  * 
  * @param {value} value: any value to be returned
+ * @return {Any}: Function returns the input value unchanged, acting as an identity function.
  */
 function identity(value){
     return value;
@@ -72,9 +73,10 @@ module.exports.identity = identity;
 
 //2 SOLVED
 /**
- * typeof: Designed to return the specific type of any value, including arrays and null.
- * 
- * @param {value} value: any value to be returned
+ * typeof: Designed to determine and return the specific type of any given value, including arrays and null. It uses various conditional checks to identify the type of the input value and returns a corresponding string representing the detected data type.
+ *
+ *  @param {value} value: any value to be returned
+ * @return {String}: Function returns a string indicating the data type of the input value.
  */
  function typeOf (value) {
     if (typeof value  === "string") {return "string"}
@@ -94,6 +96,13 @@ module.exports.identity = identity;
   * 
   * @param {Array} array: an array to be passed; if no array is passed it will return []
   * @param {number} number: a positive number to be passed
+  * 
+ChatGPT
+@return {Array}: Function returns an array containing the first num elements from the input array. 
+If array is negative or not an array, it returns an empty array. 
+If num is greater than the length of the array, it returns the entire array. 
+If num is not provided or not a number, it returns the first element of the array.
+  * 
   */
  function first (array, num) {
     let output = [];
@@ -115,6 +124,10 @@ module.exports.identity = identity;
  * 
  * @param {Array} array: an array to be passed; if no array is passed it will return []
  * @param {Number} number: a positive number to be passed
+ * @return {Array}: Function returns an array containing the last number elements from the input array. 
+ * If array is negative or is not an array, it returns an empty array. 
+ * If number is greater than the length of the array, it returns the entire array. 
+ * If number is not provided or not a number, it returns the last element of the array.
  */
 function last(array, number) {
     if (typeof array === "object" && array instanceof Array !== true) {
@@ -142,6 +155,8 @@ module.exports.last = last;
  * 
  * @param {Array} array: an array to be passed
  * @param {Value} value: any value to be passed
+ * @return {Number}: Function returns the index of the first occurrence of the value in the input array. 
+ * If the value is not found in the array, it returns -1.
  */
 function indexOf(array, value){
     for (let i = 0; i < array.length; i++){
@@ -157,6 +172,7 @@ module.exports.indexOf = indexOf;
  * 
  * @param {Array} array: an array to be passed
  * @param {Value} value: any value to be passed
+ * @return {Boolean}: Function returns true if the input array contains the value, otherwise, it returns false.
  */
 function contains(array, value){
     for (let i = 0; i < array.length; i++){
@@ -172,6 +188,7 @@ module.exports.contains = contains;
  * 
  * @param {Array|Object} collection: a collection to be passed; can be an array or an object
  * @param {Function} func: a function to be passed and called on each element of an array
+ * 
  */
 function each(collection, func){
     if (collection instanceof Array === true) {
@@ -191,6 +208,7 @@ module.exports.each = each
 /**
  * unique: Designed to return a new array of all elements from input array with duplicates removed
  * * @param {Array} array: an array to be passed
+ * @return {Array}: Function returns a new array containing only unique elements from the input array. 
  */
 function each(array){
     let output = [];
@@ -208,6 +226,7 @@ module.exports.unique = unique;
  * filter: Designed to apply a function to an array and return all true values as an array
  * @param {Array} array: an array to be passed
  * @param {Function} func: a function to be passed and called on each element of an array
+ * @return {Array}: Function returns a new array containing elements from the input array for which the func function returns true.
  */
 function filter(array, func){
     let output = [];
@@ -225,6 +244,7 @@ module.exports.filter = filter
  * reject: Designed to apply a function to an array and return all false values
  * @param {Array} array: an array to be passed
  * @param {Function} func: a function to be passed and called on each element of an array
+ * @return {Array}: Function returns a new array containing elements from the input array for which the func function returns false.
  */
 function reject(array, func){
     let output = [];
@@ -239,9 +259,11 @@ module.exports.reject = reject
 
 //11 SOLVED
 /**
- * partition: Designed to call a function on an array and return truthy values and falsy values
+ * partition: It returns an array of nested arrays. One nested array is all of the values from the input array that return true when passed into the callback; the other array is all of the values from the input array that return false when passed into the callback.
  * @param {Array} array: an array to be passed
  * @param {Function} func: a function to be passed and called on each element of an array
+ * @return {Array}: Function returns a new array containing two sub-arrays: the first sub-array contains elements from the input array for which the func function returns true, and the second sub-array contains elements for which the func function returns false.
+ * 
  */
 function partition(array, func){
     let output = [[], []];
@@ -262,6 +284,7 @@ module.exports.partition = partition
  * map: Designed to call a function on each element in an array or object and return the values
  * @param {Array|Object} collection: a collection to be passed; can be an array or an object
  * @param {Function} func: a function to be passed and called on each element in the object
+ * @return {Array}: Function returns an array containing the results of applying the func function to each element in the input collection. 
  */
 function map(collection, func){
     let output = [];
@@ -284,6 +307,7 @@ module.exports.map = map
  * pluck: Designed to parse an <array> of nested objects and return an array of all values associated with a key of <property>
  * @param {Array} array: an array of nested objects to be passed
  * @param {Value} property: a key value be passed in as a string
+ * @return {Array}: Function returns an array containing the values of the specified property from each object in the input array. 
  */
 function pluck(array, property){
     let output = [];
@@ -297,8 +321,10 @@ function pluck(array, property){
 /**
  * every: Designed to parse each element in an array/object and return whether all values are true or false (when a function is passed) or truthy or falsy (when no function parameter is passed)
  * @param {Array|Object} collection: a collection to be passed; can be an array or an object
- * @param {Function} func: a function to be passed and called on each element in the object; if no function entered, return will refer to truthy or falsy
- */
+ * @param {Function} func: a function to be passed and called on each element in the object; 
+ * if no function entered, return will refer to truthy or falsy
+ * @return {Boolean}: Function returns a boolean value indicating whether all elements in the collection satisfy the condition specified by the func function. 
+*/
 function every(collection, func) {
     if (typeof collection === "object" && collection instanceof Array === true) {
        for (let i = 0; i < collection.length; i++){
@@ -333,7 +359,8 @@ module.exports.every = every
  * some: Designed to determine if at least one element in a collection satisfies a given condition.
  * @param {Array|Object} collection: a collection to be passed; can be an array or an object
  * @param {Function} func: a function to be passed and called on each element in the object; if no function entered, return will refer to truthy or falsy
- */
+ * @return {Boolean}: Function returns a boolean value indicating whether any element in the collection satisfies the condition specified by the func function. 
+*/
 function some(collection, func) { 
     if (collection instanceof Array) { // for arrays
       if (func === undefined) {
@@ -376,6 +403,7 @@ module.exports.some = some
  * @param {Array} array - Array to be passed
  * @param {Function} func - function to be passed on each element in array
  * @param {value} seed - value to be passed
+ * @return {Any}: Function returns the result of reducing the input array using the provided function func. The data type of the return value depends on the data types of the elements in the array and the implementation of the func function.
  */
 function reduce(array, func, seed){
     let previous = ""
@@ -401,6 +429,7 @@ module.exports.reduce = reduce
  * extend: Designed to parse an object; for any number of other objects passed, any new elements will be copied to the original object
  * @param {Object} obj1: an object to be passed
  * @param {Object} obj2: an additional object to be passed
+ * @return {String}: Function returns a string indicating the data type of the input value.
  */
 function extend(obj1, obj2){
     //for in on obj2, if it is not in obj1, set X = Y
