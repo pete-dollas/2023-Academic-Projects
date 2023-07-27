@@ -64,7 +64,55 @@
 *   CONST
 *     Constants are block-scoped, much like variables declared using the letkeyword. The value of a constant can’t be changed through reassignment (i.e., by using the assignment     operator), and it can’t be redeclared (i.e. through a variable declaration). However, if a constant is an object or array its properties or items can be updated or removed.
  *
+ * Block-scoping with let and const allows you to declare variables that are limited in scope to a 
+ * specific block of code (e.g., inside a loop, conditional statement, or function). 
+ * This prevents variable pollution and unintended side effects. 
  * 
+ * Here's an example to demonstrate block scoping:
+
+function blockScopeExample() {
+  if (true) {
+    var x = 10; // Function-scoped variable (hoisted)
+    let y = 20; // Block-scoped variable
+    const z = 30; // Block-scoped constant
+
+    console.log("Inside block:");
+    console.log("x:", x); // Output: 10
+    console.log("y:", y); // Output: 20
+    console.log("z:", z); // Output: 30
+  }
+
+  // Outside the block, the 'let' and 'const' variables are not accessible
+  console.log("Outside block:");
+  console.log("x:", x); // Output: 10
+  // The following two lines will throw ReferenceError as 'y' and 'z' are not accessible here.
+  // console.log("y:", y);
+  // console.log("z:", z);
+}
+
+blockScopeExample();
+In this example, we have a function blockScopeExample() with an if block inside it. 
+Within the if block, we use three variables: x declared with var (function-scoped), 
+y declared with let (block-scoped variable), and z declared with const (block-scoped constant).
+
+The variable x declared with var is function-scoped and is accessible both inside and outside the if block. 
+However, the variables y and z declared with let and const, respectively, are block-scoped. 
+They are only accessible within the if block and not outside of it.
+
+When we run blockScopeExample(), you'll see the output:
+
+Inside block:
+x: 10
+y: 20
+z: 30
+Outside block:
+x: 10
+
+
+We can access the x variable both inside and outside the block, but the y and z variables 
+are only accessible inside the block. 
+Trying to access y or z outside the block will result in a ReferenceError. 
+
  * 
  * 3: Hoisting
 *   Hoisting refers to the process whereby the interpreter appears to move the declaration of functions, variables or classes to the top of their scope, prior to execution of     the code.

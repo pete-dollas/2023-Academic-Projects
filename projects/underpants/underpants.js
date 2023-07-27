@@ -214,16 +214,17 @@ _.contains = function(array, value) {
 *      -> should log "a" "b" "c" to the console
 */
 _.each = function(collection, funct) {
-    if (collection instanceof Array === true) {
-        for (let i = 0; i < collection.length; i++) {
-            funct(collection[i], i, collection)
-        }
+   if (Array.isArray(collection) === true) {
+    for (let i = 0; i < collection.length; i++){
+        funct(collection[i], i, collection)
     }
-    else if (typeof collection === "object") {
-        for (let entry in collection) {
-            funct(collection[entry], entry, collection)
-        }
+   }
+   else if (typeof collection === "object"){
+    for (let prop in collection){
+        funct(collection[prop], prop, collection)
     }
+   }
+   //return collection
 }
 
 
@@ -267,9 +268,9 @@ _.unique = function(array){
 */
 
 _.filter = function(array, func){
-let output = [];
-for (let i = 0; i < array.length; i++) {
-    if (func(array[i], i, array) === true) {
+let output = []
+for (let i = 0; i < array.length; i++){
+    if (func(array[i], i, array)){
         output.push(array[i])
     }
 }
